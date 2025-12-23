@@ -41,7 +41,7 @@ export default function Projects(projects = [], { groupByType = false } = {}) {
                   ${entity && html`at <strong>${entity}</strong>`}
                 </div>
                 ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
-                ${type && html`<div>${type}</div>`}
+                ${type && !groupByType && html`<div>${type}</div>`}
               </div>
             </header>
             ${description && markdown(description)}
