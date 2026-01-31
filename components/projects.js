@@ -38,7 +38,8 @@ export default function Projects(projects = [], { groupByType = false } = {}) {
               <div class="meta">
                 <div>
                   ${roles.length > 0 && html`<strong>${formatRoles(roles)}</strong>`}
-                  ${entity && html`at <strong>${entity}</strong>`}
+                  ${roles.length > 0 && entity && html`at `}
+                  ${entity && html`<strong>${markdown(entity).replace(/^<p>|<\/p>$/g, '')}</strong>`}
                 </div>
                 ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
                 ${type && !groupByType && html`<div>${type}</div>`}
