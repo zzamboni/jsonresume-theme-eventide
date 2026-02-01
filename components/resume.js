@@ -11,6 +11,7 @@ import Projects from './projects.js'
 import Publications from './publications.js'
 import References from './references.js'
 import Skills from './skills.js'
+import TableOfContents from './table-of-contents.js'
 import Volunteer from './volunteer.js'
 import Work from './work.js'
 
@@ -24,6 +25,7 @@ import Work from './work.js'
 export default function Resume(resume, { css, js } = {}) {
   const iconSet = resume.meta?.themeOptions?.icons?.toLowerCase?.() === 'fontawesome' ? 'fontawesome' : 'feather'
   const projectsByType = Boolean(resume.meta?.themeOptions?.projectsByType)
+  const showTableOfContents = Boolean(resume.meta?.themeOptions?.showTableOfContents)
   return html`<!doctype html>
     <html lang="en" style="${colors(resume.meta)}">
       <head>
@@ -40,7 +42,8 @@ export default function Resume(resume, { css, js } = {}) {
           ${js}
         </script>`}
       </head>
-      <body>
+      <body id="top">
+        ${showTableOfContents && TableOfContents(resume, { groupByType: projectsByType })}
         ${Header(resume.basics, { iconSet })} ${Work(resume.work)} ${Volunteer(resume.volunteer)}
         ${Education(resume.education)} ${Projects(resume.projects, { groupByType: projectsByType })}
         ${Awards(resume.awards)} ${Certificates(resume.certificates)} ${Publications(resume.publications)}
