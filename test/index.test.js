@@ -31,20 +31,24 @@ it('renders a resume with additional section metadata', () => {
     ...resume,
     meta: {
       ...meta,
-      sectionLabels: { work: 'Jobs' },
-      sections: [
-        'work',
-        'volunteer',
-        'education',
-        'skills',
-        'projects',
-        'awards',
-        'certificates',
-        'publications',
-        'languages',
-        'interests',
-        'references',
-      ],
+      themeOptions: {
+        ...meta.themeOptions,
+        projectsByType: true,
+        sectionLabels: { work: 'Jobs', 'projects:application': 'Apps' },
+        sections: [
+          'work',
+          'projects:application',
+          'volunteer',
+          'education',
+          'skills',
+          'awards',
+          'certificates',
+          'publications',
+          'languages',
+          'interests',
+          'references',
+        ],
+      },
     },
   }
 

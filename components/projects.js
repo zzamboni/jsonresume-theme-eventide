@@ -17,14 +17,17 @@ const formatRoles = roles => (Intl.ListFormat ? new Intl.ListFormat('en').format
 export default function Projects(projects = [], labelOrOptions, options = {}) {
   let label = 'Projects'
   let groupByType = false
+  let sectionId = 'projects'
 
   if (labelOrOptions && typeof labelOrOptions === 'object') {
     groupByType = Boolean(labelOrOptions.groupByType)
     if (typeof labelOrOptions.label === 'string') label = labelOrOptions.label
+    if (typeof labelOrOptions.sectionId === 'string') sectionId = labelOrOptions.sectionId
   } else {
     if (typeof labelOrOptions === 'string') label = labelOrOptions
     groupByType = Boolean(options.groupByType)
     if (typeof options.label === 'string') label = options.label
+    if (typeof options.sectionId === 'string') sectionId = options.sectionId
   }
 
   if (projects.length === 0) return false
@@ -78,7 +81,7 @@ export default function Projects(projects = [], labelOrOptions, options = {}) {
 
   if (!groupByType) {
     return html`
-      <section id="projects">
+      <section id="${sectionId}">
         <h3>${label}</h3>
         ${renderProjects(projects)}
       </section>

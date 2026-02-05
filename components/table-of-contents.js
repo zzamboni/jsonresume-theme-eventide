@@ -20,6 +20,8 @@ const slugify = str =>
  */
 const section = (id, label, hasContent) => (hasContent ? { id, label } : null)
 
+const projectSectionPrefix = 'projects:'
+
 const defaultSections = [
   'work',
   'volunteer',
@@ -35,6 +37,8 @@ const defaultSections = [
 ]
 
 const normalizeLabel = label => (label ? `${label.charAt(0).toUpperCase()}${label.slice(1)}` : label)
+
+const isProjectSection = sectionId => sectionId === 'projects' || sectionId.startsWith(projectSectionPrefix)
 
 /**
  * @param {import('../schema.d.ts').ResumeSchema} resume
@@ -57,9 +61,12 @@ export default function TableOfContents(resume, { groupByType = false } = {}) {
     references,
   } = resume
 
-  const sectionsOrder = resume.meta?.sections || defaultSections
-  const sectionLabels = resume.meta?.sectionLabels || {}
+  const themeOptions = resume.meta?.themeOptions || {}
+  const sectionsOrder = themeOptions.sections || defaultSections
+  const sectionLabels = themeOptions.sectionLabels || {}
   const labelForSection = sectionId => normalizeLabel(sectionLabels[sectionId] || sectionId)
+  const projectEntries = sectionsOrder.filter(isProjectSection)
+  const hasProjectOverrides = Array.isArray(themeOptions.sections) && projectEntries.length > 0
 
   const hasContent = {
     work: work && work.length > 0,
@@ -75,22 +82,42 @@ export default function TableOfContents(resume, { groupByType = false } = {}) {
     references: references && references.length > 0,
   }
 
+  const buildProjectSection = (typeKey, label) => {
+    const slug = slugify(typeKey)
+    return { id: slug === 'projects' ? 'projects' : `projects-${slug}`, label }
+  }
+
   // Build list of sections that have content, honoring custom order/labels
   const sections = sectionsOrder.flatMap(sectionId => {
     if (sectionId === 'projects') {
       if (!hasContent.projects) return []
+
+      if (groupByType && hasProjectOverrides) {
+        const hasTypeless = projects.some(project => !project.type)
+        return hasTypeless ? [section('projects', labelForSection('projects'), true)] : []
+      }
+
       if (!groupByType) return [section('projects', labelForSection('projects'), true)]
 
       const types = [...new Set(projects.map(p => p.type).filter(Boolean))]
       const hasTypeless = projects.some(p => !p.type)
 
       return [
-        ...types.map(type => {
-          const slug = slugify(type)
-          return { id: slug === 'projects' ? 'projects' : `projects-${slug}`, label: type }
-        }),
+        ...types.map(type => buildProjectSection(type, type)),
         ...(hasTypeless ? [{ id: 'projects', label: labelForSection('projects') }] : []),
       ]
+    }
+
+    if (groupByType && hasProjectOverrides && isProjectSection(sectionId)) {
+      if (!hasContent.projects) return []
+      const typeKey = sectionId.slice(projectSectionPrefix.length).trim()
+      if (!typeKey) return []
+
+      const hasType = projects.some(project => project.type === typeKey)
+      if (!hasType) return []
+
+      const label = normalizeLabel(sectionLabels[sectionId] || typeKey)
+      return [buildProjectSection(typeKey, label)]
     }
 
     if (!(sectionId in hasContent)) return []

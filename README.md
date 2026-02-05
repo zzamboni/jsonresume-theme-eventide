@@ -105,26 +105,28 @@ If the `.meta.themeOptions.projectsByType` is `true`, project entries are render
 
 #### Ordering
 
-You can override what sections are displayed, and in what order, via the `.meta.sections` resume field.
+You can override what sections are displayed, and in what order, via the `.meta.themeOptions.sections` resume field.
 
 Here's an example with all available sections in their default order:
 
 ```json
 {
   "meta": {
-    "sections": [
-      "work",
-      "volunteer",
-      "education",
-      "projects",
-      "awards",
-      "certificates",
-      "publications",
-      "skills",
-      "languages",
-      "interests",
-      "references"
-    ]
+    "themeOptions": {
+      "sections": [
+        "work",
+        "volunteer",
+        "education",
+        "projects",
+        "awards",
+        "certificates",
+        "publications",
+        "skills",
+        "languages",
+        "interests",
+        "references"
+      ]
+    }
   }
 }
 ```
@@ -138,9 +140,28 @@ You can override the default section labels. Particularly useful if you want to 
 ```json
 {
   "meta": {
-    "sectionLabels": {
-      "work": "Jobs",
-      "projects": "Projekter"
+    "themeOptions": {
+      "sectionLabels": {
+        "work": "Jobs",
+        "projects": "Projekter"
+      }
+    }
+  }
+}
+```
+
+If `.meta.themeOptions.projectsByType` is `true`, you can also break out project types into individually ordered sections by using `projects:<type>` entries. For example:
+
+```json
+{
+  "meta": {
+    "themeOptions": {
+      "projectsByType": true,
+      "sections": ["work", "projects:application", "projects:library", "skills"],
+      "sectionLabels": {
+        "projects:application": "Apps",
+        "projects:library": "Libraries"
+      }
     }
   }
 }
