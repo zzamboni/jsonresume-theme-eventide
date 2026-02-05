@@ -1,4 +1,5 @@
 import { html } from '@rbardini/html'
+import { markdownInline } from '../utils/markdown.js'
 
 /**
  * @param {import('../schema.d.ts').ResumeSchema['skills']} skills
@@ -14,7 +15,7 @@ export default function Skills(skills = []) {
           ${skills.map(
             ({ keywords = [], name }) => html`
               <div>
-                ${name && html`<h4>${name}</h4>`}
+                ${name && html`<h4>${markdownInline(name)}</h4>`}
                 ${keywords.length > 0 &&
                 html`
                   <ul class="tag-list">

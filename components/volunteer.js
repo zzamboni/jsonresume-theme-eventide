@@ -1,5 +1,5 @@
 import { html } from '@rbardini/html'
-import markdown from '../utils/markdown.js'
+import markdown, { markdownInline } from '../utils/markdown.js'
 import DateTimeDuration from './date-time-duration.js'
 import Link from './link.js'
 
@@ -18,9 +18,9 @@ export default function Volunteer(volunteer = []) {
             ({ highlights = [], organization, position, startDate, endDate, summary, url }) => html`
               <article>
                 <header>
-                  <h4>${Link(url, organization)}</h4>
+                  <h4>${Link(url, organization, { markdown: true })}</h4>
                   <div class="meta">
-                    <strong>${position}</strong>
+                    <strong>${position && markdownInline(position)}</strong>
                     ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
                   </div>
                 </header>

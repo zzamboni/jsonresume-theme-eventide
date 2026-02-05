@@ -1,5 +1,5 @@
 import { html } from '@rbardini/html'
-import markdown from '../utils/markdown.js'
+import markdown, { markdownInline } from '../utils/markdown.js'
 import DateTime from './date-time.js'
 
 /**
@@ -17,9 +17,10 @@ export default function Awards(awards = []) {
             ({ awarder, date, summary, title }) => html`
               <article>
                 <header>
-                  <h4>${title}</h4>
+                  <h4>${title && markdownInline(title)}</h4>
                   <div class="meta">
-                    ${awarder && html`<div>Awarded by <strong>${awarder}</strong></div>`} ${date && DateTime(date)}
+                    ${awarder && html`<div>Awarded by <strong>${markdownInline(awarder)}</strong></div>`}
+                    ${date && DateTime(date)}
                   </div>
                 </header>
                 ${summary && markdown(summary)}

@@ -1,5 +1,5 @@
 import { html } from '@rbardini/html'
-import markdown from '../utils/markdown.js'
+import markdown, { markdownInline } from '../utils/markdown.js'
 import DateTime from './date-time.js'
 import Link from './link.js'
 
@@ -18,9 +18,9 @@ export default function Publications(publications = []) {
             ({ name, publisher, releaseDate, summary, url }) => html`
               <article>
                 <header>
-                  <h4>${Link(url, name)}</h4>
+                  <h4>${Link(url, name, { markdown: true })}</h4>
                   <div class="meta">
-                    ${publisher && html`<div>Published by <strong>${publisher}</strong></div>`}
+                    ${publisher && html`<div>Published by <strong>${markdownInline(publisher)}</strong></div>`}
                     ${releaseDate && DateTime(releaseDate)}
                   </div>
                 </header>

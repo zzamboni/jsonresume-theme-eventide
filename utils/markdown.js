@@ -11,3 +11,11 @@ export default function markdown(doc, stripTags = false) {
   const html = /** @type {string} */ (micromark(doc))
   return stripTags ? striptags(html) : html
 }
+
+/**
+ * @param {string} doc
+ * @returns {string}
+ */
+export function markdownInline(doc) {
+  return markdown(doc).replace(/^<p>|<\/p>$/g, '')
+}

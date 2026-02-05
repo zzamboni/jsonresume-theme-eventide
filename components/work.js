@@ -1,5 +1,5 @@
 import { html } from '@rbardini/html'
-import markdown from '../utils/markdown.js'
+import markdown, { markdownInline } from '../utils/markdown.js'
 import DateTimeDuration from './date-time-duration.js'
 import Duration from './duration.js'
 import Link from './link.js'
@@ -31,12 +31,18 @@ export default function Work(work = []) {
             return html`
               <article>
                 <header>
-                  <h4>${singleItem ? singleItem.position : Link(url, name)}</h4>
+                  <h4>
+                    ${singleItem
+                      ? singleItem.position && markdownInline(singleItem.position)
+                      : Link(url, name, { markdown: true })}
+                  </h4>
                   <div class="meta">
                     ${singleItem
                       ? html`
                           <div>
-                            ${[html`<strong>${Link(url, name)}</strong>`, description].filter(Boolean).join(' · ')}
+                            ${[html`<strong>${Link(url, name, { markdown: true })}</strong>`, description]
+                              .filter(Boolean)
+                              .join(' · ')}
                           </div>
                           ${singleItem.startDate &&
                           html`<div>${DateTimeDuration(singleItem.startDate, singleItem.endDate)}</div>`}
@@ -55,7 +61,7 @@ export default function Work(work = []) {
                         ${!singleItem &&
                         html`
                           <div>
-                            <h5>${position}</h5>
+                            <h5>${position && markdownInline(position)}</h5>
                             <div class="meta">
                               ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
                               ${location && html`<div>${location}</div>`}

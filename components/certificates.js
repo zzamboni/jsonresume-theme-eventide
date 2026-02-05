@@ -1,4 +1,5 @@
 import { html } from '@rbardini/html'
+import { markdownInline } from '../utils/markdown.js'
 import DateTime from './date-time.js'
 import Link from './link.js'
 
@@ -21,7 +22,7 @@ export default function Certificates(certificates = []) {
         <h3>Certificates</h3>
         <div class="stack">
           ${notes.length > 0 &&
-          html` ${notes.map(({ name, url }) => html`<div class="meta">${Link(url, name)}</div>`)} `}
+          html` ${notes.map(({ name, url }) => html`<div class="meta">${Link(url, name, { markdown: true })}</div>`)} `}
           ${certs.map(
             ({ date, issuer, name, url, image }) => html`
               <article>
@@ -41,9 +42,10 @@ export default function Certificates(certificates = []) {
                       `
                     }
                     <div style="min-width: 0;">
-                      <h4>${Link(url, name)}</h4>
+                      <h4>${Link(url, name, { markdown: true })}</h4>
                       <div class="meta">
-                        ${issuer && html`<div>Issued by <strong>${issuer}</strong></div>`} ${date && DateTime(date)}
+                        ${issuer && html`<div>Issued by <strong>${markdownInline(issuer)}</strong></div>`}
+                        ${date && DateTime(date)}
                       </div>
                     </div>
                 </header>

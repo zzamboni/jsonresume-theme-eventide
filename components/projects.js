@@ -1,5 +1,5 @@
 import { html } from '@rbardini/html'
-import markdown from '../utils/markdown.js'
+import markdown, { markdownInline } from '../utils/markdown.js'
 import DateTimeDuration from './date-time-duration.js'
 import Link from './link.js'
 
@@ -34,12 +34,12 @@ export default function Projects(projects = [], { groupByType = false } = {}) {
         }) => html`
           <article>
             <header>
-              <h4>${Link(url, name)}</h4>
+              <h4>${Link(url, name, { markdown: true })}</h4>
               <div class="meta">
                 <div>
                   ${roles.length > 0 && html`<strong>${formatRoles(roles)}</strong>`}
                   ${roles.length > 0 && entity && html`at `}
-                  ${entity && html`<strong>${markdown(entity).replace(/^<p>|<\/p>$/g, '')}</strong>`}
+                  ${entity && html`<strong>${markdownInline(entity)}</strong>`}
                 </div>
                 ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
                 ${type && !groupByType && html`<div>${type}</div>`}

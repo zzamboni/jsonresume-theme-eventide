@@ -1,5 +1,5 @@
 import { html } from '@rbardini/html'
-import markdown from '../utils/markdown.js'
+import markdown, { markdownInline } from '../utils/markdown.js'
 import DateTimeDuration from './date-time-duration.js'
 import Link from './link.js'
 
@@ -18,9 +18,13 @@ export default function Education(education = []) {
             ({ area, courses = [], institution, startDate, endDate, studyType, url }) => html`
               <article>
                 <header>
-                  <h4>${Link(url, institution)}</h4>
+                  <h4>${Link(url, institution, { markdown: true })}</h4>
                   <div class="meta">
-                    <div>${[studyType, area && html`<strong>${area}</strong>`].filter(Boolean).join(' in ')}</div>
+                    <div>
+                      ${[studyType && markdownInline(studyType), area && html`<strong>${markdownInline(area)}</strong>`]
+                        .filter(Boolean)
+                        .join(' in ')}
+                    </div>
                     ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
                   </div>
                 </header>
