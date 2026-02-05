@@ -4,16 +4,18 @@ import { expect, it } from 'vitest'
 import sampleResume from '@jsonresume/schema/sample.resume.json' with { type: 'json' }
 import { render } from '../index.js'
 
-const resume = {
-  ...sampleResume,
-  meta: {
-    ...sampleResume.meta,
-    themeOptions: {
-      colors: {
-        background: ['lightgray', 'darkgray'],
-      },
+const meta = {
+  ...sampleResume.meta,
+  themeOptions: {
+    colors: {
+      background: ['lightgray', 'darkgray'],
     },
   },
+}
+
+const resume = {
+  ...sampleResume,
+  meta,
   basics: {
     ...sampleResume.basics,
     image: 'image.jpg',
@@ -22,6 +24,31 @@ const resume = {
 
 it('renders a resume', () => {
   expect(render(resume)).toMatchSnapshot()
+})
+
+it('renders a resume with additional section metadata', () => {
+  const resumeWithSections = {
+    ...resume,
+    meta: {
+      ...meta,
+      sectionLabels: { work: 'Jobs' },
+      sections: [
+        'work',
+        'volunteer',
+        'education',
+        'skills',
+        'projects',
+        'awards',
+        'certificates',
+        'publications',
+        'languages',
+        'interests',
+        'references',
+      ],
+    },
+  }
+
+  expect(render(resumeWithSections)).toMatchSnapshot()
 })
 
 it('renders valid HTML', async () => {

@@ -7,7 +7,7 @@ import Link from './link.js'
  * @param {import('../schema.d.ts').ResumeSchema['certificates']} certificates
  * @returns {string | false}
  */
-export default function Certificates(certificates = []) {
+export default function Certificates(certificates = [], label = 'Certificates') {
   const isNote = c =>
     // “Note” entries: a URL + name, but no issuer/date/image
     c && c.name && !c.issuer && !c.date && !c.image
@@ -19,7 +19,7 @@ export default function Certificates(certificates = []) {
     (notes.length > 0 || certs.length > 0) &&
     html`
       <section id="certificates">
-        <h3>Certificates</h3>
+        <h3>${label}</h3>
         <div class="stack">
           ${notes.length > 0 &&
           html` ${notes.map(({ name, url }) => html`<div class="meta">${Link(url, name, { markdown: true })}</div>`)} `}

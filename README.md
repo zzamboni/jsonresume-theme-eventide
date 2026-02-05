@@ -101,6 +101,51 @@ If a certificate entry contains only `name` and optionally `url` but no `issuer`
 
 If the `.meta.themeOptions.projectsByType` is `true`, project entries are rendered as separate sections according to their `type` field, instead of as a single section.
 
+### Sections
+
+#### Ordering
+
+You can override what sections are displayed, and in what order, via the `.meta.sections` resume field.
+
+Here's an example with all available sections in their default order:
+
+```json
+{
+  "meta": {
+    "sections": [
+      "work",
+      "volunteer",
+      "education",
+      "projects",
+      "awards",
+      "certificates",
+      "publications",
+      "skills",
+      "languages",
+      "interests",
+      "references"
+    ]
+  }
+}
+```
+
+Any sections not in the above list are not registered and won't be displayed in the final render.
+
+#### Custom Labels
+
+You can override the default section labels. Particularly useful if you want to translate a resume into another language.
+
+```json
+{
+  "meta": {
+    "sectionLabels": {
+      "work": "Jobs",
+      "projects": "Projekter"
+    }
+  }
+}
+```
+
 ### Table of contents
 
 You can enable a floating table of contents on the right side of the screen by setting `.meta.themeOptions.showTableOfContents` to `true`:

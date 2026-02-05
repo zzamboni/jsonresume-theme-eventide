@@ -5,12 +5,12 @@ import { markdownInline } from '../utils/markdown.js'
  * @param {import('../schema.d.ts').ResumeSchema['interests']} interests
  * @returns {string | false}
  */
-export default function Interests(interests = []) {
+export default function Interests(interests = [], label = 'Interests') {
   return (
     interests.length > 0 &&
     html`
       <section id="interests">
-        <h3>Interests</h3>
+        <h3>${label}</h3>
         <div class="grid-list">
           ${interests.map(
             ({ keywords = [], name }) => html`

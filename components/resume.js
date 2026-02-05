@@ -1,19 +1,9 @@
 import { html } from '@rbardini/html'
 import colors from '../utils/colors.js'
-import Awards from './awards.js'
-import Certificates from './certificates.js'
-import Education from './education.js'
 import Header from './header.js'
-import Interests from './interests.js'
-import Languages from './languages.js'
 import Meta from './meta.js'
-import Projects from './projects.js'
-import Publications from './publications.js'
-import References from './references.js'
-import Skills from './skills.js'
+import Sections from './sections.js'
 import TableOfContents from './table-of-contents.js'
-import Volunteer from './volunteer.js'
-import Work from './work.js'
 
 /**
  * @param {import('../schema.d.ts').ResumeSchema} resume
@@ -44,11 +34,7 @@ export default function Resume(resume, { css, js } = {}) {
       </head>
       <body id="top">
         ${showTableOfContents && TableOfContents(resume, { groupByType: projectsByType })}
-        ${Header(resume.basics, { iconSet })} ${Work(resume.work)} ${Volunteer(resume.volunteer)}
-        ${Education(resume.education)} ${Projects(resume.projects, { groupByType: projectsByType })}
-        ${Awards(resume.awards)} ${Certificates(resume.certificates)} ${Publications(resume.publications)}
-        ${Skills(resume.skills)} ${Languages(resume.languages)} ${Interests(resume.interests)}
-        ${References(resume.references)}
+        ${Header(resume.basics, { iconSet })} ${Sections(resume, { groupByType: projectsByType })}
       </body>
     </html>`
 }

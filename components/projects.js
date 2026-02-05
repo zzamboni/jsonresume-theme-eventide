@@ -14,7 +14,19 @@ const formatRoles = roles => (Intl.ListFormat ? new Intl.ListFormat('en').format
  * @param {{ groupByType?: boolean }} [options]
  * @returns {string | false}
  */
-export default function Projects(projects = [], { groupByType = false } = {}) {
+export default function Projects(projects = [], labelOrOptions, options = {}) {
+  let label = 'Projects'
+  let groupByType = false
+
+  if (labelOrOptions && typeof labelOrOptions === 'object') {
+    groupByType = Boolean(labelOrOptions.groupByType)
+    if (typeof labelOrOptions.label === 'string') label = labelOrOptions.label
+  } else {
+    if (typeof labelOrOptions === 'string') label = labelOrOptions
+    groupByType = Boolean(options.groupByType)
+    if (typeof options.label === 'string') label = options.label
+  }
+
   if (projects.length === 0) return false
 
   const renderProjects = list => html`
@@ -67,14 +79,14 @@ export default function Projects(projects = [], { groupByType = false } = {}) {
   if (!groupByType) {
     return html`
       <section id="projects">
-        <h3>Projects</h3>
+        <h3>${label}</h3>
         ${renderProjects(projects)}
       </section>
     `
   }
 
   const groups = projects.reduce((acc, project) => {
-    const type = project.type?.trim() || 'Projects'
+    const type = project.type?.trim() || '__default__'
     acc[type] = acc[type] || []
     acc[type].push(project)
     return acc
@@ -87,13 +99,17 @@ export default function Projects(projects = [], { groupByType = false } = {}) {
       .replace(/(^-|-$)/g, '') || 'projects'
 
   return html`
-    ${Object.entries(groups).map(
-      ([type, items]) => html`
-        <section id="${slugify(type) === 'projects' ? 'projects' : `projects-${slugify(type)}`}">
-          <h3>${type}</h3>
+    ${Object.entries(groups).map(([type, items]) => {
+      const isDefaultGroup = type === '__default__'
+      const sectionLabel = isDefaultGroup ? label : type
+      const slug = slugify(sectionLabel)
+      const sectionId = isDefaultGroup ? 'projects' : slug === 'projects' ? 'projects' : `projects-${slug}`
+      return html`
+        <section id="${sectionId}">
+          <h3>${sectionLabel}</h3>
           ${renderProjects(items)}
         </section>
-      `,
-    )}
+      `
+    })}
   `
 }
