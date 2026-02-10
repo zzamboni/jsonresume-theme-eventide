@@ -8,38 +8,37 @@ import Link from './link.js'
  * @returns {string | false}
  */
 export default function Education(education = [], label = 'Education') {
-  return (
-    education.length > 0 &&
-    html`
-      <section id="education">
-        <h3>${label}</h3>
-        <div class="stack">
-          ${education.map(
-            ({ area, courses = [], institution, startDate, endDate, studyType, url }) => html`
-              <article>
-                <header>
-                  <h4>${Link(url, institution, { markdown: true })}</h4>
-                  <div class="meta">
-                    <div>
-                      ${[studyType && markdownInline(studyType), area && html`<strong>${markdownInline(area)}</strong>`]
-                        .filter(Boolean)
-                        .join(' in ')}
-                    </div>
-                    ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
+  if (!education.length) return ''
+
+  return html`
+    <section id="education">
+      <h3>${label}</h3>
+      <div class="stack">
+        ${education.map(
+          ({ area, courses = [], institution, startDate, endDate, studyType, url }) => html`
+            <article>
+              <header>
+                <h4>${Link(url, institution, { markdown: true })}</h4>
+                <div class="meta">
+                  <div>
+                    ${[studyType && markdownInline(studyType), area && html`<strong>${markdownInline(area)}</strong>`]
+                      .filter(Boolean)
+                      .join(' in ')}
                   </div>
-                </header>
-                ${courses.length > 0 &&
-                html`
-                  <h5>Courses</h5>
-                  <ul>
-                    ${courses.map(course => html`<li>${markdown(course)}</li>`)}
-                  </ul>
-                `}
-              </article>
-            `,
-          )}
-        </div>
-      </section>
-    `
-  )
+                  ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
+                </div>
+              </header>
+              ${courses.length > 0 &&
+              html`
+                <h5>Courses</h5>
+                <ul>
+                  ${courses.map(course => html`<li>${markdown(course)}</li>`)}
+                </ul>
+              `}
+            </article>
+          `,
+        )}
+      </div>
+    </section>
+  `
 }

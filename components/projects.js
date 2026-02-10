@@ -30,7 +30,7 @@ export default function Projects(projects = [], labelOrOptions, options = {}) {
     if (typeof options.sectionId === 'string') sectionId = options.sectionId
   }
 
-  if (projects.length === 0) return false
+  if (projects.length === 0) return ''
 
   const renderProjects = list => html`
     <div class="stack">

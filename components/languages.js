@@ -6,18 +6,17 @@ import { markdownInline } from '../utils/markdown.js'
  * @returns {string | false}
  */
 export default function Languages(languages = [], label = 'Languages') {
-  return (
-    languages.length > 0 &&
-    html`
-      <section id="languages">
-        <h3>${label}</h3>
-        <div class="grid-list">
-          ${languages.map(
-            ({ fluency, language }) =>
-              html`<div>${language && html`<h4>${markdownInline(language)}</h4>`} ${fluency}</div>`,
-          )}
-        </div>
-      </section>
-    `
-  )
+  if (!languages.length) return ''
+
+  return html`
+    <section id="languages">
+      <h3>${label}</h3>
+      <div class="grid-list">
+        ${languages.map(
+          ({ fluency, language }) =>
+            html`<div>${language && html`<h4>${markdownInline(language)}</h4>`} ${fluency}</div>`,
+        )}
+      </div>
+    </section>
+  `
 }

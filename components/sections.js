@@ -73,14 +73,14 @@ export default function Sections(resume, { groupByType = false } = {}) {
         const typeless = projects.filter(project => !project.type)
         if (typeless.length === 0) return null
         const label = normalizeLabel(sectionLabels.projects || 'Projects')
-        return Projects(typeless, label, { groupByType: false, sectionId: 'projects' })
+        return Projects(typeless, label, { groupByType: true, sectionId: 'projects' })
       }
 
       const typed = projects.filter(project => project.type === typeKey)
       if (typed.length === 0) return null
       const label = normalizeLabel(sectionLabels[section] || typeKey)
       const sectionId = `projects-${slugify(typeKey)}`
-      return Projects(typed, label, { groupByType: false, sectionId })
+      return Projects(typed, label, { groupByType: true, sectionId })
     }
 
     const label = normalizeLabel(sectionLabels[section] || section)

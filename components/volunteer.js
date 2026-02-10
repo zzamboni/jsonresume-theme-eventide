@@ -8,34 +8,33 @@ import Link from './link.js'
  * @returns {string | false}
  */
 export default function Volunteer(volunteer = [], label = 'Volunteer') {
-  return (
-    volunteer.length > 0 &&
-    html`
-      <section id="volunteer">
-        <h3>${label}</h3>
-        <div class="stack">
-          ${volunteer.map(
-            ({ highlights = [], organization, position, startDate, endDate, summary, url }) => html`
-              <article>
-                <header>
-                  <h4>${Link(url, organization, { markdown: true })}</h4>
-                  <div class="meta">
-                    <strong>${position && markdownInline(position)}</strong>
-                    ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
-                  </div>
-                </header>
-                ${summary && markdown(summary)}
-                ${highlights.length > 0 &&
-                html`
-                  <ul>
-                    ${highlights.map(highlight => html`<li>${markdown(highlight)}</li>`)}
-                  </ul>
-                `}
-              </article>
-            `,
-          )}
-        </div>
-      </section>
-    `
-  )
+  if (!volunteer.length) return ''
+
+  return html`
+    <section id="volunteer">
+      <h3>${label}</h3>
+      <div class="stack">
+        ${volunteer.map(
+          ({ highlights = [], organization, position, startDate, endDate, summary, url }) => html`
+            <article>
+              <header>
+                <h4>${Link(url, organization, { markdown: true })}</h4>
+                <div class="meta">
+                  <strong>${position && markdownInline(position)}</strong>
+                  ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
+                </div>
+              </header>
+              ${summary && markdown(summary)}
+              ${highlights.length > 0 &&
+              html`
+                <ul>
+                  ${highlights.map(highlight => html`<li>${markdown(highlight)}</li>`)}
+                </ul>
+              `}
+            </article>
+          `,
+        )}
+      </div>
+    </section>
+  `
 }

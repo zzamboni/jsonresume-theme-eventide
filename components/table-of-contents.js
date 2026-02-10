@@ -124,17 +124,16 @@ export default function TableOfContents(resume, { groupByType = false } = {}) {
     return [section(sectionId, labelForSection(sectionId), hasContent[sectionId])].filter(Boolean)
   })
 
-  return (
-    sections.length > 0 &&
-    html`
-      <nav class="table-of-contents" aria-label="Table of contents">
-        <ul>
-          <li>
-            <a href="#top" data-toc-target="top"><b>${basics.name}</b></a>
-          </li>
-          ${sections.map(({ id, label }) => html`<li><a href="#${id}" data-toc-target="${id}">${label}</a></li>`)}
-        </ul>
-      </nav>
-    `
-  )
+  if (!sections.length) return ''
+
+  return html`
+    <nav class="table-of-contents" aria-label="Table of contents">
+      <ul>
+        <li>
+          <a href="#top" data-toc-target="top"><b>${basics.name}</b></a>
+        </li>
+        ${sections.map(({ id, label }) => html`<li><a href="#${id}" data-toc-target="${id}">${label}</a></li>`)}
+      </ul>
+    </nav>
+  `
 }

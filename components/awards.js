@@ -7,28 +7,27 @@ import DateTime from './date-time.js'
  * @returns {string | false}
  */
 export default function Awards(awards = [], label = 'Awards') {
-  return (
-    awards.length > 0 &&
-    html`
-      <section id="awards">
-        <h3>${label}</h3>
-        <div class="stack">
-          ${awards.map(
-            ({ awarder, date, summary, title }) => html`
-              <article>
-                <header>
-                  <h4>${title && markdownInline(title)}</h4>
-                  <div class="meta">
-                    ${awarder && html`<div>Awarded by <strong>${markdownInline(awarder)}</strong></div>`}
-                    ${date && DateTime(date)}
-                  </div>
-                </header>
-                ${summary && markdown(summary)}
-              </article>
-            `,
-          )}
-        </div>
-      </section>
-    `
-  )
+  if (!awards.length) return ''
+
+  return html`
+    <section id="awards">
+      <h3>${label}</h3>
+      <div class="stack">
+        ${awards.map(
+          ({ awarder, date, summary, title }) => html`
+            <article>
+              <header>
+                <h4>${title && markdownInline(title)}</h4>
+                <div class="meta">
+                  ${awarder && html`<div>Awarded by <strong>${markdownInline(awarder)}</strong></div>`}
+                  ${date && DateTime(date)}
+                </div>
+              </header>
+              ${summary && markdown(summary)}
+            </article>
+          `,
+        )}
+      </div>
+    </section>
+  `
 }

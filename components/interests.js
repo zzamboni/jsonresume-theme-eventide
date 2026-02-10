@@ -6,27 +6,26 @@ import { markdownInline } from '../utils/markdown.js'
  * @returns {string | false}
  */
 export default function Interests(interests = [], label = 'Interests') {
-  return (
-    interests.length > 0 &&
-    html`
-      <section id="interests">
-        <h3>${label}</h3>
-        <div class="grid-list">
-          ${interests.map(
-            ({ keywords = [], name }) => html`
-              <div>
-                ${name && html`<h4>${markdownInline(name)}</h4>`}
-                ${keywords.length > 0 &&
-                html`
-                  <ul class="tag-list">
-                    ${keywords.map(keyword => html`<li>${keyword}</li>`)}
-                  </ul>
-                `}
-              </div>
-            `,
-          )}
-        </div>
-      </section>
-    `
-  )
+  if (!interests.length) return ''
+
+  return html`
+    <section id="interests">
+      <h3>${label}</h3>
+      <div class="grid-list">
+        ${interests.map(
+          ({ keywords = [], name }) => html`
+            <div>
+              ${name && html`<h4>${markdownInline(name)}</h4>`}
+              ${keywords.length > 0 &&
+              html`
+                <ul class="tag-list">
+                  ${keywords.map(keyword => html`<li>${keyword}</li>`)}
+                </ul>
+              `}
+            </div>
+          `,
+        )}
+      </div>
+    </section>
+  `
 }
