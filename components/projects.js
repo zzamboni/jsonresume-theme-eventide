@@ -18,16 +18,19 @@ export default function Projects(projects = [], labelOrOptions, options = {}) {
   let label = 'Projects'
   let groupByType = false
   let sectionId = 'projects'
+  let typeLabelOverrides = undefined
 
   if (labelOrOptions && typeof labelOrOptions === 'object') {
     groupByType = Boolean(labelOrOptions.groupByType)
     if (typeof labelOrOptions.label === 'string') label = labelOrOptions.label
     if (typeof labelOrOptions.sectionId === 'string') sectionId = labelOrOptions.sectionId
+    if (labelOrOptions.typeLabelOverrides) typeLabelOverrides = labelOrOptions.typeLabelOverrides
   } else {
     if (typeof labelOrOptions === 'string') label = labelOrOptions
     groupByType = Boolean(options.groupByType)
     if (typeof options.label === 'string') label = options.label
     if (typeof options.sectionId === 'string') sectionId = options.sectionId
+    if (options.typeLabelOverrides) typeLabelOverrides = options.typeLabelOverrides
   }
 
   if (projects.length === 0) return ''
@@ -104,8 +107,8 @@ export default function Projects(projects = [], labelOrOptions, options = {}) {
   return html`
     ${Object.entries(groups).map(([type, items]) => {
       const isDefaultGroup = type === '__default__'
-      const sectionLabel = isDefaultGroup ? label : type
-      const slug = slugify(sectionLabel)
+      const sectionLabel = isDefaultGroup ? label : typeLabelOverrides?.[type] || type
+      const slug = slugify(type)
       const sectionId = isDefaultGroup ? 'projects' : slug === 'projects' ? 'projects' : `projects-${slug}`
       return html`
         <section id="${sectionId}">

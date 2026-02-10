@@ -80,7 +80,7 @@ export default function Sections(resume, { groupByType = false } = {}) {
       if (typed.length === 0) return null
       const label = normalizeLabel(sectionLabels[section] || typeKey)
       const sectionId = `projects-${slugify(typeKey)}`
-      return Projects(typed, label, { groupByType: true, sectionId })
+      return Projects(typed, label, { groupByType: true, sectionId, typeLabelOverrides: { [typeKey]: label } })
     }
 
     const label = normalizeLabel(sectionLabels[section] || section)

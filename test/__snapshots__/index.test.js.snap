@@ -129,7 +129,7 @@ customElements.define('time-duration', TimeDuration)
       </head>
       <body id="top">
         
-        
+         
     <header class="masthead">
       <img src="image.jpg" alt="" />
       <div><h1>Richard Hendriks</h1> <h2>Programmer</h2></div>
@@ -167,92 +167,93 @@ customElements.define('time-duration', TimeDuration)
           
       </ul>
     </header>
-   
-      <section id="work">
-        <h3>Work</h3>
-        <div class="stack">
-          
-              <article>
-                <header>
-                  <h4>
-                    CEO/President
-                  </h4>
-                  <div class="meta">
-                    
-                          <div>
-                            <strong><a href="http://piedpiper.example.com">Pied Piper</a></strong> · Awesome compression company
-                          </div>
-                          <div><time datetime="2013-12-01">Dec 2013</time> – <time datetime="2014-12-01">Dec 2014</time> <time-duration dates="2013-12-01|2014-12-01"></time-duration></div>
-                          <div>Palo Alto, CA</div>
-                        
-                  </div>
-                </header>
-                <div class="timeline">
+  
+        
+    <section id="work">
+      <h3>Work</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4>
+                  CEO/President
+                </h4>
+                <div class="meta">
                   
-                      <div>
-                        
-                        <p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p>
-                        
-                          <ul>
-                            <li><p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p></li><li><p>Successfully won Techcrunch Disrupt</p></li><li><p>Optimized an algorithm that holds the current world record for Weisman Scores</p></li>
-                          </ul>
-                        
-                      </div>
-                    
+                        <div>
+                          <strong><a href="http://piedpiper.example.com">Pied Piper</a></strong> · Awesome compression company
+                        </div>
+                        <div><time datetime="2013-12-01">Dec 2013</time> – <time datetime="2014-12-01">Dec 2014</time> <time-duration dates="2013-12-01|2014-12-01"></time-duration></div>
+                        <div>Palo Alto, CA</div>
+                      
                 </div>
-              </article>
-            
-        </div>
-      </section>
-    
-      <section id="volunteer">
-        <h3>Volunteer</h3>
-        <div class="stack">
-          
-              <article>
-                <header>
-                  <h4><a href="http://coderdojo.example.com/">CoderDojo</a></h4>
-                  <div class="meta">
-                    <strong>Teacher</strong>
-                    <div><time datetime="2012-01-01">Jan 2012</time> – <time datetime="2013-01-01">Jan 2013</time> <time-duration dates="2012-01-01|2013-01-01"></time-duration></div>
-                  </div>
-                </header>
-                <p>Global movement of free coding clubs for young people.</p>
+              </header>
+              <div class="timeline">
                 
-                  <ul>
-                    <li><p>Awarded 'Teacher of the Month'</p></li>
-                  </ul>
-                
-              </article>
-            
-        </div>
-      </section>
-    
-      <section id="education">
-        <h3>Education</h3>
-        <div class="stack">
-          
-              <article>
-                <header>
-                  <h4><a href="https://www.ou.edu/">University of Oklahoma</a></h4>
-                  <div class="meta">
                     <div>
-                      Bachelor in <strong>Information Technology</strong>
+                      
+                      <p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p>
+                      
+                        <ul>
+                          <li><p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p></li><li><p>Successfully won Techcrunch Disrupt</p></li><li><p>Optimized an algorithm that holds the current world record for Weisman Scores</p></li>
+                        </ul>
+                      
                     </div>
-                    <div><time datetime="2011-06-01">Jun 2011</time> – <time datetime="2014-01-01">Jan 2014</time> <time-duration dates="2011-06-01|2014-01-01"></time-duration></div>
+                  
+              </div>
+            </article>
+          
+      </div>
+    </section>
+  
+    <section id="volunteer">
+      <h3>Volunteer</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4><a href="http://coderdojo.example.com/">CoderDojo</a></h4>
+                <div class="meta">
+                  <strong>Teacher</strong>
+                  <div><time datetime="2012-01-01">Jan 2012</time> – <time datetime="2013-01-01">Jan 2013</time> <time-duration dates="2012-01-01|2013-01-01"></time-duration></div>
+                </div>
+              </header>
+              <p>Global movement of free coding clubs for young people.</p>
+              
+                <ul>
+                  <li><p>Awarded 'Teacher of the Month'</p></li>
+                </ul>
+              
+            </article>
+          
+      </div>
+    </section>
+  
+    <section id="education">
+      <h3>Education</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4><a href="https://www.ou.edu/">University of Oklahoma</a></h4>
+                <div class="meta">
+                  <div>
+                    Bachelor in <strong>Information Technology</strong>
                   </div>
-                </header>
-                
-                  <h5>Courses</h5>
-                  <ul>
-                    <li><p>DB1101 - Basic SQL</p></li><li><p>CS2011 - Java Introduction</p></li>
-                  </ul>
-                
-              </article>
-            
-        </div>
-      </section>
-    
+                  <div><time datetime="2011-06-01">Jun 2011</time> – <time datetime="2014-01-01">Jan 2014</time> <time-duration dates="2011-06-01|2014-01-01"></time-duration></div>
+                </div>
+              </header>
+              
+                <h5>Courses</h5>
+                <ul>
+                  <li><p>DB1101 - Basic SQL</p></li><li><p>CS2011 - Java Introduction</p></li>
+                </ul>
+              
+            </article>
+          
+      </div>
+    </section>
+  
       <section id="projects">
         <h3>Projects</h3>
         
@@ -288,106 +289,106 @@ customElements.define('time-duration', TimeDuration)
   
       </section>
     
-      <section id="awards">
-        <h3>Awards</h3>
-        <div class="stack">
+    <section id="awards">
+      <h3>Awards</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4>Digital Compression Pioneer Award</h4>
+                <div class="meta">
+                  <div>Awarded by <strong>Techcrunch</strong></div>
+                  <time datetime="2014-11-01">Nov 2014</time>
+                </div>
+              </header>
+              <p>There is no spoon.</p>
+            </article>
           
-              <article>
-                <header>
-                  <h4>Digital Compression Pioneer Award</h4>
-                  <div class="meta">
-                    <div>Awarded by <strong>Techcrunch</strong></div>
-                    <time datetime="2014-11-01">Nov 2014</time>
-                  </div>
-                </header>
-                <p>There is no spoon.</p>
-              </article>
-            
-        </div>
-      </section>
-    false
-      <section id="publications">
-        <h3>Publications</h3>
-        <div class="stack">
+      </div>
+    </section>
+  
+    <section id="publications">
+      <h3>Publications</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4><a href="http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Video compression for 3d media</a></h4>
+                <div class="meta">
+                  <div>Published by <strong>Hooli</strong></div>
+                  <time datetime="2014-10-01">Oct 2014</time>
+                </div>
+              </header>
+              <p>Innovative middle-out compression algorithm that changes the way we store data.</p>
+            </article>
           
-              <article>
-                <header>
-                  <h4><a href="http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Video compression for 3d media</a></h4>
-                  <div class="meta">
-                    <div>Published by <strong>Hooli</strong></div>
-                    <time datetime="2014-10-01">Oct 2014</time>
-                  </div>
-                </header>
-                <p>Innovative middle-out compression algorithm that changes the way we store data.</p>
-              </article>
-            
-        </div>
-      </section>
-    
-      <section id="skills">
-        <h3>Skills</h3>
-        <div class="grid-list">
+      </div>
+    </section>
+  
+    <section id="skills">
+      <h3>Skills</h3>
+      <div class="grid-list">
+        
+            <div>
+              <h4>Web Development</h4>
+              
+                <ul class="tag-list">
+                  <li>HTML</li><li>CSS</li><li>Javascript</li>
+                </ul>
+              
+            </div>
           
-              <div>
-                <h4>Web Development</h4>
-                
-                  <ul class="tag-list">
-                    <li>HTML</li><li>CSS</li><li>Javascript</li>
-                  </ul>
-                
-              </div>
-            
-              <div>
-                <h4>Compression</h4>
-                
-                  <ul class="tag-list">
-                    <li>Mpeg</li><li>MP4</li><li>GIF</li>
-                  </ul>
-                
-              </div>
-            
-        </div>
-      </section>
-    
-      <section id="languages">
-        <h3>Languages</h3>
-        <div class="grid-list">
-          <div><h4>English</h4> Native speaker</div>
-        </div>
-      </section>
-    
-      <section id="interests">
-        <h3>Interests</h3>
-        <div class="grid-list">
+            <div>
+              <h4>Compression</h4>
+              
+                <ul class="tag-list">
+                  <li>Mpeg</li><li>MP4</li><li>GIF</li>
+                </ul>
+              
+            </div>
           
-              <div>
-                <h4>Wildlife</h4>
-                
-                  <ul class="tag-list">
-                    <li>Ferrets</li><li>Unicorns</li>
-                  </ul>
-                
-              </div>
-            
-        </div>
-      </section>
-    
-      <section id="references">
-        <h3>References</h3>
-        <div class="stack">
+      </div>
+    </section>
+  
+    <section id="languages">
+      <h3>Languages</h3>
+      <div class="grid-list">
+        <div><h4>English</h4> Native speaker</div>
+      </div>
+    </section>
+  
+    <section id="interests">
+      <h3>Interests</h3>
+      <div class="grid-list">
+        
+            <div>
+              <h4>Wildlife</h4>
+              
+                <ul class="tag-list">
+                  <li>Ferrets</li><li>Unicorns</li>
+                </ul>
+              
+            </div>
           
-              <blockquote>
-                <p>It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.</p>
-                
-                  <p>
-                    <cite>Erlich Bachman</cite>
-                  </p>
-                
-              </blockquote>
-            
-        </div>
-      </section>
-    
+      </div>
+    </section>
+  
+    <section id="references">
+      <h3>References</h3>
+      <div class="stack">
+        
+            <blockquote>
+              <p>It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.</p>
+              
+                <p>
+                  <cite>Erlich Bachman</cite>
+                </p>
+              
+            </blockquote>
+          
+      </div>
+    </section>
+  
       </body>
     </html>"
 `;
@@ -521,7 +522,7 @@ customElements.define('time-duration', TimeDuration)
       </head>
       <body id="top">
         
-        
+         
     <header class="masthead">
       <img src="image.jpg" alt="" />
       <div><h1>Richard Hendriks</h1> <h2>Programmer</h2></div>
@@ -559,47 +560,49 @@ customElements.define('time-duration', TimeDuration)
           
       </ul>
     </header>
-   
-      <section id="work">
-        <h3>Jobs</h3>
-        <div class="stack">
-          
-              <article>
-                <header>
-                  <h4>
-                    CEO/President
-                  </h4>
-                  <div class="meta">
-                    
-                          <div>
-                            <strong><a href="http://piedpiper.example.com">Pied Piper</a></strong> · Awesome compression company
-                          </div>
-                          <div><time datetime="2013-12-01">Dec 2013</time> – <time datetime="2014-12-01">Dec 2014</time> <time-duration dates="2013-12-01|2014-12-01"></time-duration></div>
-                          <div>Palo Alto, CA</div>
-                        
-                  </div>
-                </header>
-                <div class="timeline">
-                  
-                      <div>
-                        
-                        <p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p>
-                        
-                          <ul>
-                            <li><p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p></li><li><p>Successfully won Techcrunch Disrupt</p></li><li><p>Optimized an algorithm that holds the current world record for Weisman Scores</p></li>
-                          </ul>
-                        
-                      </div>
-                    
-                </div>
-              </article>
-            
-        </div>
-      </section>
-    
-      <section id="projects-application">
-        <h3>Apps</h3>
+  
         
+    <section id="work">
+      <h3>Jobs</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4>
+                  CEO/President
+                </h4>
+                <div class="meta">
+                  
+                        <div>
+                          <strong><a href="http://piedpiper.example.com">Pied Piper</a></strong> · Awesome compression company
+                        </div>
+                        <div><time datetime="2013-12-01">Dec 2013</time> – <time datetime="2014-12-01">Dec 2014</time> <time-duration dates="2013-12-01|2014-12-01"></time-duration></div>
+                        <div>Palo Alto, CA</div>
+                      
+                </div>
+              </header>
+              <div class="timeline">
+                
+                    <div>
+                      
+                      <p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p>
+                      
+                        <ul>
+                          <li><p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p></li><li><p>Successfully won Techcrunch Disrupt</p></li><li><p>Optimized an algorithm that holds the current world record for Weisman Scores</p></li>
+                        </ul>
+                      
+                    </div>
+                  
+              </div>
+            </article>
+          
+      </div>
+    </section>
+  
+    
+        <section id="projects-application">
+          <h3>Apps</h3>
+          
     <div class="stack">
       
           <article>
@@ -612,7 +615,7 @@ customElements.define('time-duration', TimeDuration)
                   <strong>Smoogle</strong>
                 </div>
                 <div><time datetime="2016-08-24">Aug 2016</time></div>
-                <div>application</div>
+                
               </div>
             </header>
             <p>A mapping engine that misguides you</p>
@@ -630,156 +633,157 @@ customElements.define('time-duration', TimeDuration)
         
     </div>
   
-      </section>
-    
-      <section id="volunteer">
-        <h3>Volunteer</h3>
-        <div class="stack">
+        </section>
+      
+  
+    <section id="volunteer">
+      <h3>Volunteer</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4><a href="http://coderdojo.example.com/">CoderDojo</a></h4>
+                <div class="meta">
+                  <strong>Teacher</strong>
+                  <div><time datetime="2012-01-01">Jan 2012</time> – <time datetime="2013-01-01">Jan 2013</time> <time-duration dates="2012-01-01|2013-01-01"></time-duration></div>
+                </div>
+              </header>
+              <p>Global movement of free coding clubs for young people.</p>
+              
+                <ul>
+                  <li><p>Awarded 'Teacher of the Month'</p></li>
+                </ul>
+              
+            </article>
           
-              <article>
-                <header>
-                  <h4><a href="http://coderdojo.example.com/">CoderDojo</a></h4>
-                  <div class="meta">
-                    <strong>Teacher</strong>
-                    <div><time datetime="2012-01-01">Jan 2012</time> – <time datetime="2013-01-01">Jan 2013</time> <time-duration dates="2012-01-01|2013-01-01"></time-duration></div>
+      </div>
+    </section>
+  
+    <section id="education">
+      <h3>Education</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4><a href="https://www.ou.edu/">University of Oklahoma</a></h4>
+                <div class="meta">
+                  <div>
+                    Bachelor in <strong>Information Technology</strong>
                   </div>
-                </header>
-                <p>Global movement of free coding clubs for young people.</p>
-                
-                  <ul>
-                    <li><p>Awarded 'Teacher of the Month'</p></li>
-                  </ul>
-                
-              </article>
-            
-        </div>
-      </section>
-    
-      <section id="education">
-        <h3>Education</h3>
-        <div class="stack">
+                  <div><time datetime="2011-06-01">Jun 2011</time> – <time datetime="2014-01-01">Jan 2014</time> <time-duration dates="2011-06-01|2014-01-01"></time-duration></div>
+                </div>
+              </header>
+              
+                <h5>Courses</h5>
+                <ul>
+                  <li><p>DB1101 - Basic SQL</p></li><li><p>CS2011 - Java Introduction</p></li>
+                </ul>
+              
+            </article>
           
-              <article>
-                <header>
-                  <h4><a href="https://www.ou.edu/">University of Oklahoma</a></h4>
-                  <div class="meta">
-                    <div>
-                      Bachelor in <strong>Information Technology</strong>
-                    </div>
-                    <div><time datetime="2011-06-01">Jun 2011</time> – <time datetime="2014-01-01">Jan 2014</time> <time-duration dates="2011-06-01|2014-01-01"></time-duration></div>
-                  </div>
-                </header>
-                
-                  <h5>Courses</h5>
-                  <ul>
-                    <li><p>DB1101 - Basic SQL</p></li><li><p>CS2011 - Java Introduction</p></li>
-                  </ul>
-                
-              </article>
-            
-        </div>
-      </section>
-    
-      <section id="skills">
-        <h3>Skills</h3>
-        <div class="grid-list">
+      </div>
+    </section>
+  
+    <section id="skills">
+      <h3>Skills</h3>
+      <div class="grid-list">
+        
+            <div>
+              <h4>Web Development</h4>
+              
+                <ul class="tag-list">
+                  <li>HTML</li><li>CSS</li><li>Javascript</li>
+                </ul>
+              
+            </div>
           
-              <div>
-                <h4>Web Development</h4>
-                
-                  <ul class="tag-list">
-                    <li>HTML</li><li>CSS</li><li>Javascript</li>
-                  </ul>
-                
-              </div>
-            
-              <div>
-                <h4>Compression</h4>
-                
-                  <ul class="tag-list">
-                    <li>Mpeg</li><li>MP4</li><li>GIF</li>
-                  </ul>
-                
-              </div>
-            
-        </div>
-      </section>
-    
-      <section id="awards">
-        <h3>Awards</h3>
-        <div class="stack">
+            <div>
+              <h4>Compression</h4>
+              
+                <ul class="tag-list">
+                  <li>Mpeg</li><li>MP4</li><li>GIF</li>
+                </ul>
+              
+            </div>
           
-              <article>
-                <header>
-                  <h4>Digital Compression Pioneer Award</h4>
-                  <div class="meta">
-                    <div>Awarded by <strong>Techcrunch</strong></div>
-                    <time datetime="2014-11-01">Nov 2014</time>
-                  </div>
-                </header>
-                <p>There is no spoon.</p>
-              </article>
-            
-        </div>
-      </section>
-    false
-      <section id="publications">
-        <h3>Publications</h3>
-        <div class="stack">
+      </div>
+    </section>
+  
+    <section id="awards">
+      <h3>Awards</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4>Digital Compression Pioneer Award</h4>
+                <div class="meta">
+                  <div>Awarded by <strong>Techcrunch</strong></div>
+                  <time datetime="2014-11-01">Nov 2014</time>
+                </div>
+              </header>
+              <p>There is no spoon.</p>
+            </article>
           
-              <article>
-                <header>
-                  <h4><a href="http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Video compression for 3d media</a></h4>
-                  <div class="meta">
-                    <div>Published by <strong>Hooli</strong></div>
-                    <time datetime="2014-10-01">Oct 2014</time>
-                  </div>
-                </header>
-                <p>Innovative middle-out compression algorithm that changes the way we store data.</p>
-              </article>
-            
-        </div>
-      </section>
-    
-      <section id="languages">
-        <h3>Languages</h3>
-        <div class="grid-list">
-          <div><h4>English</h4> Native speaker</div>
-        </div>
-      </section>
-    
-      <section id="interests">
-        <h3>Interests</h3>
-        <div class="grid-list">
+      </div>
+    </section>
+  
+    <section id="publications">
+      <h3>Publications</h3>
+      <div class="stack">
+        
+            <article>
+              <header>
+                <h4><a href="http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Video compression for 3d media</a></h4>
+                <div class="meta">
+                  <div>Published by <strong>Hooli</strong></div>
+                  <time datetime="2014-10-01">Oct 2014</time>
+                </div>
+              </header>
+              <p>Innovative middle-out compression algorithm that changes the way we store data.</p>
+            </article>
           
-              <div>
-                <h4>Wildlife</h4>
-                
-                  <ul class="tag-list">
-                    <li>Ferrets</li><li>Unicorns</li>
-                  </ul>
-                
-              </div>
-            
-        </div>
-      </section>
-    
-      <section id="references">
-        <h3>References</h3>
-        <div class="stack">
+      </div>
+    </section>
+  
+    <section id="languages">
+      <h3>Languages</h3>
+      <div class="grid-list">
+        <div><h4>English</h4> Native speaker</div>
+      </div>
+    </section>
+  
+    <section id="interests">
+      <h3>Interests</h3>
+      <div class="grid-list">
+        
+            <div>
+              <h4>Wildlife</h4>
+              
+                <ul class="tag-list">
+                  <li>Ferrets</li><li>Unicorns</li>
+                </ul>
+              
+            </div>
           
-              <blockquote>
-                <p>It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.</p>
-                
-                  <p>
-                    <cite>Erlich Bachman</cite>
-                  </p>
-                
-              </blockquote>
-            
-        </div>
-      </section>
-    
+      </div>
+    </section>
+  
+    <section id="references">
+      <h3>References</h3>
+      <div class="stack">
+        
+            <blockquote>
+              <p>It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.</p>
+              
+                <p>
+                  <cite>Erlich Bachman</cite>
+                </p>
+              
+            </blockquote>
+          
+      </div>
+    </section>
+  
       </body>
     </html>"
 `;
