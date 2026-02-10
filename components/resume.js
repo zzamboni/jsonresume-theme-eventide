@@ -1,10 +1,10 @@
 import { html } from '@rbardini/html'
 import colors from '../utils/colors.js'
+import FloatingLinks from './floating-links.js'
 import Header from './header.js'
 import Meta from './meta.js'
 import Sections from './sections.js'
 import TableOfContents from './table-of-contents.js'
-import VersionsBar from './versions-bar.js'
 
 /**
  * @param {import('../schema.d.ts').ResumeSchema} resume
@@ -34,8 +34,9 @@ export default function Resume(resume, { css, js } = {}) {
         </script>`}
       </head>
       <body id="top">
-        ${showTableOfContents && TableOfContents(resume, { groupByType: projectsByType })} ${VersionsBar(resume.meta)}
-        ${Header(resume.basics, { iconSet })} ${Sections(resume, { groupByType: projectsByType })}
+        ${showTableOfContents ? TableOfContents(resume, { groupByType: projectsByType }) : ''}
+        ${FloatingLinks(resume.meta)} ${Header(resume.basics, { iconSet })}
+        ${Sections(resume, { groupByType: projectsByType })}
       </body>
     </html>`
 }

@@ -183,21 +183,18 @@ You can enable a floating table of contents on the right side of the screen by s
 
 The table of contents automatically includes links to all resume sections that have content, plus a "Top" link to return to the beginning of the document. The active section is highlighted as you scroll through the resume. The table of contents is automatically hidden on smaller screens and in print mode.
 
-### Versions/Downloads bar
+### Floating links
 
-You can add a small versions/downloads bar at the top by setting `.meta.themeOptions.versions` (and optionally `.meta.themeOptions.downloads`) to a map of label → URL:
+You can add floating action links in the bottom-right corner by setting `.meta.themeOptions.links` to an array of `{ name, url, icon }` objects. The `icon` name is looked up in FontAwesome.
 
 ```json
 {
   "meta": {
     "themeOptions": {
-      "versions": {
-        "PDF": "/vita/zamboni-vita.pdf",
-        "Leadership": "/vita/roles/leadership/"
-      },
-      "downloads": {
-        "BibTeX": "/vita/publications/zamboni-pubs.bib"
-      }
+      "links": [
+        { "name": "PDF", "url": "/vita/zamboni-vita.pdf", "icon": "file-pdf" },
+        { "name": "GitHub", "url": "https://github.com/zzamboni", "icon": "github" }
+      ]
     }
   }
 }
