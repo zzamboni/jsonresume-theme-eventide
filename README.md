@@ -185,7 +185,7 @@ The table of contents automatically includes links to all resume sections that h
 
 ### Floating links
 
-You can add floating action links in the bottom-right corner by setting `.meta.themeOptions.links` to an array of `{ name, url, icon }` objects. The `icon` name is looked up in FontAwesome.
+You can add floating action links in the bottom-right corner by setting `.meta.themeOptions.links` to an array of `{ name, url, icon }` objects. The `icon` value can be a plain Font Awesome name like `github`, or a Font Awesome class-style string copied from their site such as `fa-regular fa-file-pdf` or `fa-brands fa-github`.
 
 ```json
 {
