@@ -206,6 +206,20 @@ svg {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
+.certificate-badge-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  line-height: 0;
+}
+
+.certificate-badge {
+  display: block;
+}
+
 @media print {
   .floating-links {
     display: none;

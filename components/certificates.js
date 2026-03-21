@@ -31,8 +31,9 @@ export default function Certificates(certificates = [], label = 'Certificates') 
                   ${
                     image &&
                     html`
-                      <a href="${url}" aria-label="${name}">
+                      <a href="${url}" aria-label="${name}" class="certificate-badge-link">
                         <img
+                          class="certificate-badge"
                           src="${image}"
                           alt=""
                           loading="lazy"
