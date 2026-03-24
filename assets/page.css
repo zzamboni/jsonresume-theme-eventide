@@ -220,6 +220,12 @@ svg {
   display: block;
 }
 
+.certificate-note-entry {
+  display: flex;
+  align-items: center;
+  min-height: var(--scale4);
+}
+
 @media print {
   .floating-links {
     display: none;
