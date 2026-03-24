@@ -25,7 +25,7 @@ export default function Certificates(certificates = [], label = 'Certificates') 
         html`
           ${notes.map(
             ({ name, url }) => html`
-              <article class="certificate-note-entry">
+              <article class="note-entry">
                 <header>
                   <div class="meta">${Link(url, name, { markdown: true })}</div>
                 </header>

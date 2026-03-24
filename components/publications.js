@@ -10,11 +10,28 @@ import Link from './link.js'
 export default function Publications(publications = [], label = 'Publications') {
   if (!publications.length) return ''
 
+  const isNote = p => p && p.name && !p.publisher && !p.releaseDate && !p.summary
+  const notes = publications.filter(isNote)
+  const items = publications.filter(p => !isNote(p))
+  const noteEntries =
+    notes.length > 0
+      ? notes.map(
+          ({ name, url }) => html`
+            <article class="note-entry">
+              <header>
+                <div class="meta">${Link(url, name, { markdown: true })}</div>
+              </header>
+            </article>
+          `,
+        )
+      : ''
+
   return html`
     <section id="publications">
       <h3>${label}</h3>
       <div class="stack">
-        ${publications.map(
+        ${noteEntries}
+        ${items.map(
           ({ name, publisher, releaseDate, summary, url }) => html`
             <article>
               <header>

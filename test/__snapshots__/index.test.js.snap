@@ -311,6 +311,7 @@ customElements.define('time-duration', TimeDuration)
       <h3>Publications</h3>
       <div class="stack">
         
+        
             <article>
               <header>
                 <h4><a href="http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Video compression for 3d media</a></h4>
@@ -730,6 +731,7 @@ customElements.define('time-duration', TimeDuration)
     <section id="publications">
       <h3>Publications</h3>
       <div class="stack">
+        
         
             <article>
               <header>

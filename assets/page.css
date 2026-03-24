@@ -220,6 +220,7 @@ svg {
   display: block;
 }
 
+.note-entry,
 .certificate-note-entry {
   display: flex;
   align-items: center;
