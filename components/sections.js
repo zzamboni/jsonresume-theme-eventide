@@ -11,6 +11,14 @@ import Skills from './skills.js'
 import Volunteer from './volunteer.js'
 import Work from './work.js'
 
+/**
+ * @typedef {import('../schema.d.ts').ResumeSchema} Resume
+ * @typedef {NonNullable<Resume['projects']>[number]} Project
+ * @typedef {{sections?: string[], sectionLabels?: Record<string, string>}} ThemeOptions
+ * @typedef {{groupByType?: boolean}} SectionOptions
+ * @typedef {{groupByType?: boolean, label?: string, sectionId?: string, typeLabelOverrides?: Record<string, string>}} ProjectRenderOptions
+ */
+
 const projectSectionPrefix = 'projects:'
 
 const defaultSections = [
@@ -27,6 +35,7 @@ const defaultSections = [
   'references',
 ]
 
+/** @type {Record<string, (resume: Resume, label: string, options?: ProjectRenderOptions) => string | false>} */
 const sectionComponentMap = {
   work: (resume, label) => Work(resume.work, label),
   volunteer: (resume, label) => Volunteer(resume.volunteer, label),
@@ -41,27 +50,32 @@ const sectionComponentMap = {
   references: (resume, label) => References(resume.references, label),
 }
 
+/** @param {string} label */
 const normalizeLabel = label => (label ? `${label.charAt(0).toUpperCase()}${label.slice(1)}` : label)
 
+/** @param {string} type */
 const slugify = type =>
   type
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '') || 'projects'
 
+/** @param {string} sectionId */
 const isProjectSection = sectionId => sectionId === 'projects' || sectionId.startsWith(projectSectionPrefix)
 
 /**
- * @param {import('../schema.d.ts').ResumeSchema} resume
- * @param {{ groupByType?: boolean }} [options]
+ * @param {Resume} resume
+ * @param {SectionOptions} [options]
  * @returns {string}
  */
 export default function Sections(resume, { groupByType = false } = {}) {
+  /** @type {ThemeOptions} */
   const themeOptions = resume.meta?.themeOptions || {}
   const sections = themeOptions.sections || defaultSections
   const sectionLabels = themeOptions.sectionLabels || {}
   const projectEntries = sections.filter(isProjectSection)
   const hasProjectOverrides = Array.isArray(themeOptions.sections) && projectEntries.length > 0
+  /** @type {Project[]} */
   const projects = resume.projects || []
 
   return html`${sections.map(section => {

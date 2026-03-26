@@ -4,6 +4,16 @@ import DateTimeDuration from './date-time-duration.js'
 import Link from './link.js'
 
 /**
+ * @typedef {NonNullable<import('../schema.d.ts').ResumeSchema['projects']>[number]} Project
+ * @typedef {{
+ *   groupByType?: boolean
+ *   label?: string
+ *   sectionId?: string
+ *   typeLabelOverrides?: Record<string, string>
+ * }} ProjectRenderOptions
+ */
+
+/**
  * @param {string[]} roles
  * @returns {string}
  */
@@ -11,13 +21,15 @@ const formatRoles = roles => (Intl.ListFormat ? new Intl.ListFormat('en').format
 
 /**
  * @param {import('../schema.d.ts').ResumeSchema['projects']} projects
- * @param {{ groupByType?: boolean }} [options]
+ * @param {string | ProjectRenderOptions} [labelOrOptions]
+ * @param {ProjectRenderOptions} [options]
  * @returns {string | false}
  */
 export default function Projects(projects = [], labelOrOptions, options = {}) {
   let label = 'Projects'
   let groupByType = false
   let sectionId = 'projects'
+  /** @type {Record<string, string> | undefined} */
   let typeLabelOverrides = undefined
 
   if (labelOrOptions && typeof labelOrOptions === 'object') {
@@ -35,6 +47,7 @@ export default function Projects(projects = [], labelOrOptions, options = {}) {
 
   if (projects.length === 0) return ''
 
+  /** @param {Project[]} list */
   const renderProjects = list => html`
     <div class="stack">
       ${list.map(
@@ -96,8 +109,9 @@ export default function Projects(projects = [], labelOrOptions, options = {}) {
     acc[type] = acc[type] || []
     acc[type].push(project)
     return acc
-  }, /** @type {Record<string, NonNullable<import('../schema.d.ts').ResumeSchema['projects']>[number][]>} */ ({}))
+  }, /** @type {Record<string, Project[]>} */ ({}))
 
+  /** @param {string} type */
   const slugify = type =>
     type
       .toLowerCase()

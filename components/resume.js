@@ -6,6 +6,8 @@ import Meta from './meta.js'
 import Sections from './sections.js'
 import TableOfContents from './table-of-contents.js'
 
+/** @typedef {{icons?: string, projectsByType?: boolean, showTableOfContents?: boolean}} ThemeOptions */
+
 /**
  * @param {import('../schema.d.ts').ResumeSchema} resume
  * @param {object} [options]
@@ -14,9 +16,11 @@ import TableOfContents from './table-of-contents.js'
  * @returns
  */
 export default function Resume(resume, { css, js } = {}) {
-  const iconSet = resume.meta?.themeOptions?.icons?.toLowerCase?.() === 'fontawesome' ? 'fontawesome' : 'feather'
-  const projectsByType = Boolean(resume.meta?.themeOptions?.projectsByType)
-  const showTableOfContents = Boolean(resume.meta?.themeOptions?.showTableOfContents)
+  /** @type {ThemeOptions} */
+  const themeOptions = resume.meta?.themeOptions || {}
+  const iconSet = themeOptions.icons?.toLowerCase?.() === 'fontawesome' ? 'fontawesome' : 'feather'
+  const projectsByType = Boolean(themeOptions.projectsByType)
+  const showTableOfContents = Boolean(themeOptions.showTableOfContents)
   return html`<!doctype html>
     <html lang="en" style="${colors(resume.meta)}">
       <head>

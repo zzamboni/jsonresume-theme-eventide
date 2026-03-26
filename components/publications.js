@@ -10,6 +10,7 @@ import Link from './link.js'
 export default function Publications(publications = [], label = 'Publications') {
   if (!publications.length) return ''
 
+  /** @param {NonNullable<import('../schema.d.ts').ResumeSchema['publications']>[number]} p */
   const isNote = p => p && p.name && !p.publisher && !p.releaseDate && !p.summary
   const notes = publications.filter(isNote)
   const items = publications.filter(p => !isNote(p))

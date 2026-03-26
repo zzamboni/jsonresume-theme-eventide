@@ -7,6 +7,8 @@ import feather from 'feather-icons'
 library.add(fas, far, fab)
 
 /** @typedef {import('feather-icons').FeatherIconNames} FeatherIconNames */
+/** @typedef {import('feather-icons').FeatherIcon} FeatherIcon */
+/** @typedef {import('@fortawesome/fontawesome-svg-core').IconPrefix} IconPrefix */
 
 /**
  * @param {string} name
@@ -20,9 +22,12 @@ export default function Icon(name, fallback, iconSet = 'feather') {
   /**
    * Accept either a plain Font Awesome name (`file-pdf`) or the same class-like
    * strings shown on the Font Awesome site (`fa-regular fa-file-pdf`).
+   * @param {string | undefined} spec
+   * @returns {{preferredPrefixes: IconPrefix[], iconName: string}}
    */
   const parseFontAwesomeSpec = spec => {
     const tokens = spec?.split?.(/\s+/)?.filter(Boolean) || []
+    /** @type {IconPrefix[]} */
     let preferredPrefixes = []
     let iconName = ''
 
@@ -58,8 +63,9 @@ export default function Icon(name, fallback, iconSet = 'feather') {
     }
   }
 
+  /** @type {FeatherIcon | undefined} */
   const featherIcon =
-    (key && feather.icons[/** @type {FeatherIconNames} */ (key)]) ||
-    (fallback && feather.icons[/** @type {FeatherIconNames} */ (fallback.toLowerCase())])
+    (key ? feather.icons[/** @type {FeatherIconNames} */ (key)] : undefined) ||
+    (fallback ? feather.icons[/** @type {FeatherIconNames} */ (fallback.toLowerCase())] : undefined)
   return featherIcon?.toSvg({ width: 16, height: 16 })
 }

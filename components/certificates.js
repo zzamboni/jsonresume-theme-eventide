@@ -8,6 +8,7 @@ import Link from './link.js'
  * @returns {string | false}
  */
 export default function Certificates(certificates = [], label = 'Certificates') {
+  /** @param {NonNullable<import('../schema.d.ts').ResumeSchema['certificates']>[number]} c */
   const isNote = c =>
     // “Note” entries: a URL + name, but no issuer/date/image
     c && c.name && !c.issuer && !c.date && !c.image

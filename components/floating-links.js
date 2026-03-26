@@ -1,6 +1,15 @@
 import { html } from '@rbardini/html'
 import Icon from './icon.js'
 
+/**
+ * @typedef {{name: string, url: string, icon?: string}} FloatingLink
+ * @typedef {{links?: unknown}} ThemeOptions
+ */
+
+/**
+ * @param {unknown} input
+ * @returns {FloatingLink[]}
+ */
 const normalizeLinks = input => {
   if (!input) return []
 
@@ -27,6 +36,7 @@ const normalizeLinks = input => {
  * @returns {string}
  */
 export default function FloatingLinks(meta = {}) {
+  /** @type {ThemeOptions} */
   const themeOptions = meta?.themeOptions || {}
   const links = normalizeLinks(themeOptions.links)
 

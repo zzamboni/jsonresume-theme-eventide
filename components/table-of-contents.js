@@ -1,6 +1,13 @@
 import { html } from '@rbardini/html'
 
 /**
+ * @typedef {import('../schema.d.ts').ResumeSchema} Resume
+ * @typedef {NonNullable<Resume['projects']>[number]} Project
+ * @typedef {{sections?: string[], sectionLabels?: Record<string, string>}} ThemeOptions
+ * @typedef {{groupByType?: boolean}} TableOfContentsOptions
+ */
+
+/**
  * Slugifies a string for use in IDs
  * @param {string} str
  * @returns {string}
@@ -36,13 +43,15 @@ const defaultSections = [
   'references',
 ]
 
+/** @param {string} label */
 const normalizeLabel = label => (label ? `${label.charAt(0).toUpperCase()}${label.slice(1)}` : label)
 
+/** @param {string} sectionId */
 const isProjectSection = sectionId => sectionId === 'projects' || sectionId.startsWith(projectSectionPrefix)
 
 /**
- * @param {import('../schema.d.ts').ResumeSchema} resume
- * @param {{ groupByType?: boolean }} [options]
+ * @param {Resume} resume
+ * @param {TableOfContentsOptions} [options]
  * @returns {string | false}
  */
 export default function TableOfContents(resume, { groupByType = false } = {}) {
@@ -60,28 +69,38 @@ export default function TableOfContents(resume, { groupByType = false } = {}) {
     interests,
     references,
   } = resume
+  /** @type {Project[]} */
+  const projectList = projects || []
 
+  /** @type {ThemeOptions} */
   const themeOptions = resume.meta?.themeOptions || {}
   const sectionsOrder = themeOptions.sections || defaultSections
   const sectionLabels = themeOptions.sectionLabels || {}
+  /** @param {string} sectionId */
   const labelForSection = sectionId => normalizeLabel(sectionLabels[sectionId] || sectionId)
   const projectEntries = sectionsOrder.filter(isProjectSection)
   const hasProjectOverrides = Array.isArray(themeOptions.sections) && projectEntries.length > 0
 
+  /** @type {Record<string, boolean>} */
   const hasContent = {
-    work: work && work.length > 0,
-    volunteer: volunteer && volunteer.length > 0,
-    education: education && education.length > 0,
-    projects: projects && projects.length > 0,
-    awards: awards && awards.length > 0,
-    certificates: certificates && certificates.length > 0,
-    publications: publications && publications.length > 0,
-    skills: skills && skills.length > 0,
-    languages: languages && languages.length > 0,
-    interests: interests && interests.length > 0,
-    references: references && references.length > 0,
+    work: Boolean(work && work.length > 0),
+    volunteer: Boolean(volunteer && volunteer.length > 0),
+    education: Boolean(education && education.length > 0),
+    projects: projectList.length > 0,
+    awards: Boolean(awards && awards.length > 0),
+    certificates: Boolean(certificates && certificates.length > 0),
+    publications: Boolean(publications && publications.length > 0),
+    skills: Boolean(skills && skills.length > 0),
+    languages: Boolean(languages && languages.length > 0),
+    interests: Boolean(interests && interests.length > 0),
+    references: Boolean(references && references.length > 0),
   }
 
+  /**
+   * @param {string} typeKey
+   * @param {string} label
+   * @returns {{ id: string, label: string }}
+   */
   const buildProjectSection = (typeKey, label) => {
     const slug = slugify(typeKey)
     return { id: slug === 'projects' ? 'projects' : `projects-${slug}`, label }
@@ -93,14 +112,14 @@ export default function TableOfContents(resume, { groupByType = false } = {}) {
       if (!hasContent.projects) return []
 
       if (groupByType && hasProjectOverrides) {
-        const hasTypeless = projects.some(project => !project.type)
+        const hasTypeless = projectList.some(project => !project.type)
         return hasTypeless ? [section('projects', labelForSection('projects'), true)] : []
       }
 
       if (!groupByType) return [section('projects', labelForSection('projects'), true)]
 
-      const types = [...new Set(projects.map(p => p.type).filter(Boolean))]
-      const hasTypeless = projects.some(p => !p.type)
+      const types = /** @type {string[]} */ ([...new Set(projectList.map(p => p.type).filter(Boolean))])
+      const hasTypeless = projectList.some(p => !p.type)
 
       return [
         ...types.map(type => buildProjectSection(type, type)),
@@ -113,7 +132,7 @@ export default function TableOfContents(resume, { groupByType = false } = {}) {
       const typeKey = sectionId.slice(projectSectionPrefix.length).trim()
       if (!typeKey) return []
 
-      const hasType = projects.some(project => project.type === typeKey)
+      const hasType = projectList.some(project => project.type === typeKey)
       if (!hasType) return []
 
       const label = normalizeLabel(sectionLabels[sectionId] || typeKey)
@@ -123,16 +142,21 @@ export default function TableOfContents(resume, { groupByType = false } = {}) {
     if (!(sectionId in hasContent)) return []
     return [section(sectionId, labelForSection(sectionId), hasContent[sectionId])].filter(Boolean)
   })
+  /** @type {{ id: string, label: string }[]} */
+  const visibleSections = sections.filter(
+    /** @returns {section is { id: string, label: string }} */
+    section => Boolean(section),
+  )
 
-  if (!sections.length) return ''
+  if (!visibleSections.length) return ''
 
   return html`
     <nav class="table-of-contents" aria-label="Table of contents">
       <ul>
         <li>
-          <a href="#top" data-toc-target="top"><b>${basics.name}</b></a>
+          <a href="#top" data-toc-target="top"><b>${basics?.name || ''}</b></a>
         </li>
-        ${sections.map(({ id, label }) => html`<li><a href="#${id}" data-toc-target="${id}">${label}</a></li>`)}
+        ${visibleSections.map(({ id, label }) => html`<li><a href="#${id}" data-toc-target="${id}">${label}</a></li>`)}
       </ul>
     </nav>
   `
