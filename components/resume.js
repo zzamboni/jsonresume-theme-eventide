@@ -18,7 +18,7 @@ import TableOfContents from './table-of-contents.js'
 export default function Resume(resume, { css, js } = {}) {
   /** @type {ThemeOptions} */
   const themeOptions = resume.meta?.themeOptions || {}
-  const iconSet = themeOptions.icons?.toLowerCase?.() === 'fontawesome' ? 'fontawesome' : 'feather'
+  const iconSet = themeOptions.icons?.toLowerCase?.() === 'feather' ? 'feather' : 'fontawesome'
   const projectsByType = Boolean(themeOptions.projectsByType)
   const showTableOfContents = Boolean(themeOptions.showTableOfContents)
   return html`<!doctype html>

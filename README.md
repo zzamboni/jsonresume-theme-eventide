@@ -1,6 +1,6 @@
 # jsonresume-theme-eventide
 
-Fork of [jsonresume-theme-even](https://github.com/rbardini/jsonresume-theme-even), based on the `feat-multiple-features` branch and maintained as `jsonresume-theme-eventide`.
+Fork of [jsonresume-theme-even](https://github.com/rbardini/jsonresume-theme-even) (forked from jsonresume-theme-even@0.26.1).
 
 A flat [JSON Resume](https://jsonresume.org/) theme, compatible with the latest [resume schema](https://github.com/jsonresume/resume-schema).
 Inspired by [jsonresume-theme-flat](https://github.com/erming/jsonresume-theme-flat).
@@ -12,6 +12,13 @@ Inspired by [jsonresume-theme-flat](https://github.com/erming/jsonresume-theme-f
 - 🧩 Standalone CLI
 - 📦 ESM and CommonJS builds
 - 🤖 TypeScript typings
+- 🖼️ Support for FontAwesome and Feather icons
+- 🏅 Support for certificate badges
+- 📝 Support for "note" entries in publications, certificates and projects
+- 🗂️ Auto-grouping of project entries by type
+- 🏷️ Customizable section labels and ordering
+- 📚 Table of contents
+- 🔗 Configurable floating links
 
 [Repository →](https://github.com/zzamboni/jsonresume-theme-eventide)
 
@@ -22,6 +29,16 @@ npm install jsonresume-theme-eventide
 ```
 
 ## Usage
+
+### With resume-toolkit
+
+This theme is bundled and automatically used by [resume-toolkit](https://github.com/zzamboni/resume-toolkit), which produces both HTML and PDF outputs:
+
+```console
+wget https://raw.githubusercontent.com/zzamboni/resume-toolkit/refs/heads/main/build-resume.sh
+chmod a+rx build-resume.sh
+./build-resume resume.json --serve # Access at https://localhost:8080/
+```
 
 ### With resume-cli
 
@@ -75,13 +92,13 @@ Here's an example using the default theme colors:
 
 ### Icons
 
-By default, [Feather icons](https://feathericons.com/) are used for the profiles. You can also use [Font Awesome icons](https://fontawesome.com/) by setting the `.meta.themeOptions.icons` resume field to "fontawesome":
+By default, [Font Awesome icons](https://fontawesome.com/) are used for the profile and contact links. You can switch to [Feather icons](https://feathericons.com/) by setting the `.meta.themeOptions.icons` resume field to `"feather"`:
 
 ```json
 {
   "meta": {
     "themeOptions": {
-      "icons": "fontawesome"
+      "icons": "feather"
     }
   }
 }

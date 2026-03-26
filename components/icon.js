@@ -16,7 +16,7 @@ library.add(fas, far, fab)
  * @param {'feather' | 'fontawesome'} [iconSet]
  * @returns {string | undefined}
  */
-export default function Icon(name, fallback, iconSet = 'feather') {
+export default function Icon(name, fallback, iconSet = 'fontawesome') {
   const key = name?.toLowerCase?.()
 
   /**

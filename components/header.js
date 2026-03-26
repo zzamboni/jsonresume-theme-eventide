@@ -15,7 +15,7 @@ const formatCountry = countryCode =>
  * @param {{ iconSet?: 'feather' | 'fontawesome' }} [options]
  * @returns {string}
  */
-export default function Header(basics = {}, { iconSet = 'feather' } = {}) {
+export default function Header(basics = {}, { iconSet = 'fontawesome' } = {}) {
   const { email, image, label, location, name, phone, profiles = [], summary, url } = basics
 
   return html`
