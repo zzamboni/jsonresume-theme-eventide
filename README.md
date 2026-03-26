@@ -104,7 +104,7 @@ By default, [Font Awesome icons](https://fontawesome.com/) are used for the prof
 }
 ```
 
-### Certificate badges and notes
+### Certificate badges
 
 If a [certificate](https://docs.jsonresume.org/schema#certificates) entry contains an `image` field, it is used as the URL of an image to display next to the entry as a badge for the certificate.
 
@@ -112,7 +112,7 @@ If a certificate entry contains only `name` and optionally `url` but no `issuer`
 
 ### Grouping projects by type
 
-If the `.meta.themeOptions.projectsByType` is `true`, project entries are rendered as separate sections according to their `type` field, instead of as a single section.
+If the `.meta.themeOptions.projectsByType` is `true`, project entries are rendered as separate sections according to their `type` field, instead of as a single section. Per-type sections can also be reordered and configured with custom labels.
 
 ### Sections
 
@@ -210,5 +210,29 @@ You can add floating action links in the bottom-right corner by setting `.meta.t
       ]
     }
   }
+}
+```
+
+### Note fields
+
+The theme supports lightweight "note-style" entries in a few places. These are useful for linking to a fuller external list, adding a short explanatory entry, or including a simple item without the full metadata normally associated with that section.
+
+- In `certificates`, an entry with `name` and optionally `url`, but without `issuer`, `date`, or `image`, is treated as a note entry and rendered at the top of the certificates list.
+- In `publications`, an entry with `name` and optionally `url`, but without `publisher`, `releaseDate`, or `summary`, is treated as a note entry and rendered at the top of the publications list.
+- In `projects`, project note entries can be rendered by omitting all fields except for `description` and `type` if needed.
+
+Examples:
+
+```json
+{
+  "certificates": [{ "name": "Full certificate list", "url": "https://example.com/certificates" }],
+  "publications": [{ "name": "Full publication list", "url": "https://example.com/publications" }],
+  "projects": [
+    {
+      "name": "Side project archive",
+      "url": "https://example.com/projects",
+      "description": "A collection of smaller experiments and prototypes."
+    }
+  ]
 }
 ```
