@@ -1,5 +1,5 @@
 {
-  "name": "jsonresume-theme-even",
+  "name": "jsonresume-theme-eventide",
   "version": "0.26.1",
   "description": "A flat JSON Resume theme, compatible with the latest resume schema",
   "keywords": [
@@ -10,16 +10,16 @@
     "curriculum-vitae",
     "cv"
   ],
-  "homepage": "https://jsonresume-theme-even.rbrd.in/",
+  "homepage": "https://github.com/zzamboni/jsonresume-theme-eventide",
   "bugs": {
-    "url": "https://github.com/rbardini/jsonresume-theme-even/issues"
+    "url": "https://github.com/zzamboni/jsonresume-theme-eventide/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rbardini/jsonresume-theme-even.git"
+    "url": "git+https://github.com/zzamboni/jsonresume-theme-eventide.git"
   },
   "license": "MIT",
-  "author": "Rafael Bardini",
+  "author": "Diego Zamboni",
   "type": "module",
   "exports": {
     ".": {
@@ -39,7 +39,7 @@
   "source": "index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "jsonresume-theme-even": "bin/cli.js"
+    "jsonresume-theme-eventide": "bin/cli.js"
   },
   "files": [
     "bin",
