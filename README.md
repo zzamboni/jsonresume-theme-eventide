@@ -1,5 +1,8 @@
 # jsonresume-theme-eventide
 
+[![npm package version](https://img.shields.io/npm/v/jsonresume-theme-eventide.svg)](https://www.npmjs.com/package/jsonresume-theme-eventide)
+[![Build status](https://img.shields.io/github/actions/workflow/status/zzamboni/jsonresume-theme-eventide/main.yml)](https://github.com/zzamboni/jsonresume-theme-eventide/actions)
+
 Fork of [jsonresume-theme-even](https://github.com/rbardini/jsonresume-theme-even) (forked from jsonresume-theme-even@0.26.1).
 
 A flat [JSON Resume](https://jsonresume.org/) theme, compatible with the latest [resume schema](https://github.com/jsonresume/resume-schema).
