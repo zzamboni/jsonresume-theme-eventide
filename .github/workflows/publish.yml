@@ -6,8 +6,8 @@ on:
       - 'v*'
 
 permissions:
-  contents: read
   id-token: write
+  contents: read
 
 jobs:
   publish:
@@ -16,13 +16,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install and build
         run: npm ci
@@ -42,5 +42,14 @@ jobs:
           TAG_VERSION=${GITHUB_REF_NAME#v}
           test "$PKG_VERSION" = "$TAG_VERSION"
 
+      - name: Debug publish context
+        run: |
+          echo "repo=$GITHUB_REPOSITORY"
+          echo "ref=$GITHUB_REF"
+          echo "ref_name=$GITHUB_REF_NAME"
+          echo "workflow=$GITHUB_WORKFLOW"
+          node -p "require('./package.json').name"
+          node -p "require('./package.json').version"
+
       - name: Publish
-        run: npm publish
+        run: npm publish --provenance --access public
