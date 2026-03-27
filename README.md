@@ -236,3 +236,29 @@ Examples:
   ]
 }
 ```
+
+## Release Process
+
+To publish a new release, bump the package version and push the commit together with its tag:
+
+```console
+npm version patch
+git push --follow-tags
+```
+
+Pushing a `v*` tag triggers the GitHub Actions publish workflow, which runs the checks and publishes the package to npm automatically.
+
+If you need to re-test the publish workflow without bumping the version, you can delete and recreate the tag:
+
+```console
+git tag -d v0.27.3
+git push origin :refs/tags/v0.27.3
+git tag v0.27.3
+git push origin v0.27.3
+```
+
+You can automate the normal release flow with `mise`:
+
+```console
+mise run release patch
+```

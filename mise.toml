@@ -1,0 +1,17 @@
+[tasks.release]
+description = "Bump package version, commit, tag, and push with tags"
+usage = '''
+arg "<level>" help="Version bump level" {
+  choices "patch" "minor" "major"
+  default "patch"
+}
+'''
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+
+level="${usage_level:-patch}"
+
+npm version "$level"
+git push --follow-tags
+'''
