@@ -13,5 +13,6 @@ set -euo pipefail
 level="${usage_level:-patch}"
 
 npm version "$level"
+git push
 git push --follow-tags
 '''
