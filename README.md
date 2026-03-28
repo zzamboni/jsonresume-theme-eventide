@@ -3,10 +3,9 @@
 [![npm package version](https://img.shields.io/npm/v/jsonresume-theme-eventide.svg)](https://www.npmjs.com/package/jsonresume-theme-eventide)
 [![Build status](https://img.shields.io/github/actions/workflow/status/zzamboni/jsonresume-theme-eventide/main.yml)](https://github.com/zzamboni/jsonresume-theme-eventide/actions)
 
-Fork of [jsonresume-theme-even](https://github.com/rbardini/jsonresume-theme-even) (forked from jsonresume-theme-even@0.26.1).
+Example: https://zzamboni.org/vita/
 
-A flat [JSON Resume](https://jsonresume.org/) theme, compatible with the latest [resume schema](https://github.com/jsonresume/resume-schema).
-Inspired by [jsonresume-theme-flat](https://github.com/erming/jsonresume-theme-flat).
+A flat [JSON Resume](https://jsonresume.org/) theme, compatible with the latest [resume schema](https://github.com/jsonresume/resume-schema). Fork of [jsonresume-theme-even](https://github.com/rbardini/jsonresume-theme-even) (forked from jsonresume-theme-even@0.26.1).
 
 - 💄 Markdown support
 - 📐 CSS grid layout
@@ -21,7 +20,7 @@ Inspired by [jsonresume-theme-flat](https://github.com/erming/jsonresume-theme-f
 - 🗂️ Auto-grouping of project entries by type
 - 🏷️ Customizable section labels and ordering
 - 📚 Table of contents
-- 🔗 Configurable floating links
+- 🔗 Configurable floating links in the bottom-right of the theme
 
 [Repository →](https://github.com/zzamboni/jsonresume-theme-eventide)
 
