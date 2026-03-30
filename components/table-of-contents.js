@@ -151,7 +151,18 @@ export default function TableOfContents(resume, { groupByType = false } = {}) {
   if (!visibleSections.length) return ''
 
   return html`
-    <nav class="table-of-contents" aria-label="Table of contents">
+    <button
+      class="table-of-contents-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="table-of-contents"
+      aria-label="Open table of contents"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="table-of-contents" id="table-of-contents" aria-label="Table of contents">
       <ul>
         <li>
           <a href="#top" data-toc-target="top"><b>${basics?.name || ''}</b></a>

@@ -32,10 +32,30 @@ customElements.define('time-duration', TimeDuration)
 // Table of Contents active state tracking
 ;(() => {
   const toc = document.querySelector('.table-of-contents')
+  const toggle = document.querySelector('.table-of-contents-toggle')
   if (!toc) return
 
   const links = toc.querySelectorAll('a[data-toc-target]')
   if (!links.length) return
+
+  const mobileMediaQuery = window.matchMedia('(max-width: 64em)')
+
+  const setMenuOpen = open => {
+    if (!toggle) return
+    toggle.setAttribute('aria-expanded', String(open))
+    toggle.setAttribute('aria-label', open ? 'Close table of contents' : 'Open table of contents')
+    document.body.classList.toggle('toc-menu-open', open)
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true')
+    })
+
+    mobileMediaQuery.addEventListener('change', event => {
+      if (!event.matches) setMenuOpen(false)
+    })
+  }
 
   // Track all sections
   const sections = Array.from(links)
@@ -102,6 +122,7 @@ customElements.define('time-duration', TimeDuration)
         scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
         // Update active state immediately
         setActiveLink(sectionData.element)
+        if (mobileMediaQuery.matches) setMenuOpen(false)
       }
     })
   })

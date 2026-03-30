@@ -55,6 +55,22 @@ it('renders a resume with additional section metadata', () => {
   expect(render(resumeWithSections)).toMatchSnapshot()
 })
 
+it('does not render a table of contents when explicitly disabled', () => {
+  const resumeWithoutToc = {
+    ...resume,
+    meta: {
+      ...meta,
+      themeOptions: {
+        ...meta.themeOptions,
+        showTableOfContents: false,
+      },
+    },
+  }
+
+  expect(render(resumeWithoutToc)).not.toContain('class="table-of-contents"')
+  expect(render(resumeWithoutToc)).not.toContain('class="table-of-contents-toggle"')
+})
+
 it('renders valid HTML', async () => {
   const htmlvalidate = new HtmlValidate({
     extends: ['html-validate:recommended', 'html-validate:prettier'],

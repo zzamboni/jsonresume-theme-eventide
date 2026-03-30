@@ -47,10 +47,30 @@ customElements.define('time-duration', TimeDuration)
 // Table of Contents active state tracking
 ;(() => {
   const toc = document.querySelector('.table-of-contents')
+  const toggle = document.querySelector('.table-of-contents-toggle')
   if (!toc) return
 
   const links = toc.querySelectorAll('a[data-toc-target]')
   if (!links.length) return
+
+  const mobileMediaQuery = window.matchMedia('(max-width: 64em)')
+
+  const setMenuOpen = open => {
+    if (!toggle) return
+    toggle.setAttribute('aria-expanded', String(open))
+    toggle.setAttribute('aria-label', open ? 'Close table of contents' : 'Open table of contents')
+    document.body.classList.toggle('toc-menu-open', open)
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true')
+    })
+
+    mobileMediaQuery.addEventListener('change', event => {
+      if (!event.matches) setMenuOpen(false)
+    })
+  }
 
   // Track all sections
   const sections = Array.from(links)
@@ -117,6 +137,7 @@ customElements.define('time-duration', TimeDuration)
         scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
         // Update active state immediately
         setActiveLink(sectionData.element)
+        if (mobileMediaQuery.matches) setMenuOpen(false)
       }
     })
   })
@@ -129,6 +150,26 @@ customElements.define('time-duration', TimeDuration)
       </head>
       <body id="top">
         
+    <button
+      class="table-of-contents-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="table-of-contents"
+      aria-label="Open table of contents"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="table-of-contents" id="table-of-contents" aria-label="Table of contents">
+      <ul>
+        <li>
+          <a href="#top" data-toc-target="top"><b>Richard Hendriks</b></a>
+        </li>
+        <li><a href="#work" data-toc-target="work">Work</a></li><li><a href="#volunteer" data-toc-target="volunteer">Volunteer</a></li><li><a href="#education" data-toc-target="education">Education</a></li><li><a href="#projects" data-toc-target="projects">Projects</a></li><li><a href="#awards" data-toc-target="awards">Awards</a></li><li><a href="#publications" data-toc-target="publications">Publications</a></li><li><a href="#skills" data-toc-target="skills">Skills</a></li><li><a href="#languages" data-toc-target="languages">Languages</a></li><li><a href="#interests" data-toc-target="interests">Interests</a></li><li><a href="#references" data-toc-target="references">References</a></li>
+      </ul>
+    </nav>
+  
          
     <header class="masthead">
       <img src="image.jpg" alt="" />
@@ -441,10 +482,30 @@ customElements.define('time-duration', TimeDuration)
 // Table of Contents active state tracking
 ;(() => {
   const toc = document.querySelector('.table-of-contents')
+  const toggle = document.querySelector('.table-of-contents-toggle')
   if (!toc) return
 
   const links = toc.querySelectorAll('a[data-toc-target]')
   if (!links.length) return
+
+  const mobileMediaQuery = window.matchMedia('(max-width: 64em)')
+
+  const setMenuOpen = open => {
+    if (!toggle) return
+    toggle.setAttribute('aria-expanded', String(open))
+    toggle.setAttribute('aria-label', open ? 'Close table of contents' : 'Open table of contents')
+    document.body.classList.toggle('toc-menu-open', open)
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true')
+    })
+
+    mobileMediaQuery.addEventListener('change', event => {
+      if (!event.matches) setMenuOpen(false)
+    })
+  }
 
   // Track all sections
   const sections = Array.from(links)
@@ -511,6 +572,7 @@ customElements.define('time-duration', TimeDuration)
         scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
         // Update active state immediately
         setActiveLink(sectionData.element)
+        if (mobileMediaQuery.matches) setMenuOpen(false)
       }
     })
   })
@@ -523,6 +585,26 @@ customElements.define('time-duration', TimeDuration)
       </head>
       <body id="top">
         
+    <button
+      class="table-of-contents-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="table-of-contents"
+      aria-label="Open table of contents"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="table-of-contents" id="table-of-contents" aria-label="Table of contents">
+      <ul>
+        <li>
+          <a href="#top" data-toc-target="top"><b>Richard Hendriks</b></a>
+        </li>
+        <li><a href="#work" data-toc-target="work">Jobs</a></li><li><a href="#projects-application" data-toc-target="projects-application">Apps</a></li><li><a href="#volunteer" data-toc-target="volunteer">Volunteer</a></li><li><a href="#education" data-toc-target="education">Education</a></li><li><a href="#skills" data-toc-target="skills">Skills</a></li><li><a href="#awards" data-toc-target="awards">Awards</a></li><li><a href="#publications" data-toc-target="publications">Publications</a></li><li><a href="#languages" data-toc-target="languages">Languages</a></li><li><a href="#interests" data-toc-target="interests">Interests</a></li><li><a href="#references" data-toc-target="references">References</a></li>
+      </ul>
+    </nav>
+  
          
     <header class="masthead">
       <img src="image.jpg" alt="" />

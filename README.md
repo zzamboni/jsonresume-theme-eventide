@@ -184,19 +184,19 @@ If `.meta.themeOptions.projectsByType` is `true`, you can also break out project
 
 ### Table of contents
 
-You can enable a floating table of contents on the right side of the screen by setting `.meta.themeOptions.showTableOfContents` to `true`:
+The floating table of contents is enabled by default. You can disable it by setting `.meta.themeOptions.showTableOfContents` to `false`:
 
 ```json
 {
   "meta": {
     "themeOptions": {
-      "showTableOfContents": true
+      "showTableOfContents": false
     }
   }
 }
 ```
 
-The table of contents automatically includes links to all resume sections that have content, plus a "Top" link to return to the beginning of the document. The active section is highlighted as you scroll through the resume. The table of contents is automatically hidden on smaller screens and in print mode.
+The table of contents automatically includes links to all resume sections that have content, plus a "Top" link to return to the beginning of the document. The active section is highlighted as you scroll through the resume. On narrower screens it moves behind a hamburger button in the top-right corner, and it remains hidden in print mode.
 
 ### Floating links
 

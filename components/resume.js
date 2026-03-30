@@ -20,7 +20,7 @@ export default function Resume(resume, { css, js } = {}) {
   const themeOptions = resume.meta?.themeOptions || {}
   const iconSet = themeOptions.icons?.toLowerCase?.() === 'feather' ? 'feather' : 'fontawesome'
   const projectsByType = Boolean(themeOptions.projectsByType)
-  const showTableOfContents = Boolean(themeOptions.showTableOfContents)
+  const showTableOfContents = themeOptions.showTableOfContents !== false
   return html`<!doctype html>
     <html lang="en" style="${colors(resume.meta)}">
       <head>
