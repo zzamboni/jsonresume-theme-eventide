@@ -381,14 +381,16 @@ time + time-duration::before {
   background: var(--color-dimmed);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  overflow: hidden;
   z-index: 120;
 }
 
 .table-of-contents-toggle span {
-  display: block;
-  width: 100%;
+  position: absolute;
+  left: 0.7rem;
+  top: calc(50% - 1px);
+  width: calc(100% - 1.4rem);
   height: 2px;
-  margin: 0.28rem 0;
   background: var(--color-accent);
   border-radius: 999px;
   transition:
@@ -396,8 +398,16 @@ time + time-duration::before {
     opacity 0.2s ease;
 }
 
+.table-of-contents-toggle span:nth-child(1) {
+  transform: translateY(-7px);
+}
+
+.table-of-contents-toggle span:nth-child(3) {
+  transform: translateY(7px);
+}
+
 body.toc-menu-open .table-of-contents-toggle span:nth-child(1) {
-  transform: translateY(0.56rem) rotate(45deg);
+  transform: rotate(45deg);
 }
 
 body.toc-menu-open .table-of-contents-toggle span:nth-child(2) {
@@ -405,7 +415,7 @@ body.toc-menu-open .table-of-contents-toggle span:nth-child(2) {
 }
 
 body.toc-menu-open .table-of-contents-toggle span:nth-child(3) {
-  transform: translateY(-0.56rem) rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .table-of-contents {
