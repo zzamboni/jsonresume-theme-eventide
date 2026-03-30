@@ -10,9 +10,6 @@ import { render } from '../index.js'
 import './editor.css'
 
 const preview = document.querySelector('iframe')
-const printButton = document.querySelector('button[name=print]')
-
-printButton.addEventListener('click', () => preview.contentWindow.print())
 
 const renderPreview = debounce(resume => (preview.srcdoc = render(resume)), 200)
 renderPreview(resume)

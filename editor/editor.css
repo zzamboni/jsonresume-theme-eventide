@@ -24,30 +24,6 @@ iframe {
   height: 100%;
 }
 
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  position: absolute;
-  inset-block-end: 1rem;
-  inset-inline-end: 1rem;
-}
-
-nav > * {
-  background: ButtonFace;
-  border: 1px solid ButtonBorder;
-  border-radius: 50%;
-  color: ButtonText;
-  padding: 0.5rem;
-  display: grid;
-  place-items: center;
-}
-
-nav > :hover,
-nav > :focus {
-  background: Canvas;
-}
-
 @media (min-width: 720px) {
   body {
     grid-template: 100% / 50% 50%;
