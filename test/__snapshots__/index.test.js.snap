@@ -216,17 +216,22 @@ customElements.define('time-duration', TimeDuration)
         
             <article>
               <header>
-                <h4>
-                  CEO/President
-                </h4>
-                <div class="meta">
+                <div class="entry-header">
                   
-                        <div>
-                          <strong><a href="http://piedpiper.example.com">Pied Piper</a></strong> · Awesome compression company
-                        </div>
-                        <div><time datetime="2013-12-01">Dec 2013</time> – <time datetime="2014-12-01">Dec 2014</time> <time-duration dates="2013-12-01|2014-12-01"></time-duration></div>
-                        <div>Palo Alto, CA</div>
+                  <div class="entry-header-body">
+                    <h4>
+                      CEO/President
+                    </h4>
+                    <div class="meta">
                       
+                            <div>
+                              <strong><a href="http://piedpiper.example.com">Pied Piper</a></strong> · Awesome compression company
+                            </div>
+                            <div><time datetime="2013-12-01">Dec 2013</time> – <time datetime="2014-12-01">Dec 2014</time> <time-duration dates="2013-12-01|2014-12-01"></time-duration></div>
+                            <div>Palo Alto, CA</div>
+                          
+                    </div>
+                  </div>
                 </div>
               </header>
               <div class="timeline">
@@ -276,12 +281,17 @@ customElements.define('time-duration', TimeDuration)
         
             <article>
               <header>
-                <h4><a href="https://www.ou.edu/">University of Oklahoma</a></h4>
-                <div class="meta">
-                  <div>
-                    Bachelor in <strong>Information Technology</strong>
+                <div class="entry-header">
+                  
+                  <div class="entry-header-body">
+                    <h4><a href="https://www.ou.edu/">University of Oklahoma</a></h4>
+                    <div class="meta">
+                      <div>
+                        Bachelor in <strong>Information Technology</strong>
+                      </div>
+                      <div><time datetime="2011-06-01">Jun 2011</time> – <time datetime="2014-01-01">Jan 2014</time> <time-duration dates="2011-06-01|2014-01-01"></time-duration></div>
+                    </div>
                   </div>
-                  <div><time datetime="2011-06-01">Jun 2011</time> – <time datetime="2014-01-01">Jan 2014</time> <time-duration dates="2011-06-01|2014-01-01"></time-duration></div>
                 </div>
               </header>
               
@@ -651,17 +661,22 @@ customElements.define('time-duration', TimeDuration)
         
             <article>
               <header>
-                <h4>
-                  CEO/President
-                </h4>
-                <div class="meta">
+                <div class="entry-header">
                   
-                        <div>
-                          <strong><a href="http://piedpiper.example.com">Pied Piper</a></strong> · Awesome compression company
-                        </div>
-                        <div><time datetime="2013-12-01">Dec 2013</time> – <time datetime="2014-12-01">Dec 2014</time> <time-duration dates="2013-12-01|2014-12-01"></time-duration></div>
-                        <div>Palo Alto, CA</div>
+                  <div class="entry-header-body">
+                    <h4>
+                      CEO/President
+                    </h4>
+                    <div class="meta">
                       
+                            <div>
+                              <strong><a href="http://piedpiper.example.com">Pied Piper</a></strong> · Awesome compression company
+                            </div>
+                            <div><time datetime="2013-12-01">Dec 2013</time> – <time datetime="2014-12-01">Dec 2014</time> <time-duration dates="2013-12-01|2014-12-01"></time-duration></div>
+                            <div>Palo Alto, CA</div>
+                          
+                    </div>
+                  </div>
                 </div>
               </header>
               <div class="timeline">
@@ -748,12 +763,17 @@ customElements.define('time-duration', TimeDuration)
         
             <article>
               <header>
-                <h4><a href="https://www.ou.edu/">University of Oklahoma</a></h4>
-                <div class="meta">
-                  <div>
-                    Bachelor in <strong>Information Technology</strong>
+                <div class="entry-header">
+                  
+                  <div class="entry-header-body">
+                    <h4><a href="https://www.ou.edu/">University of Oklahoma</a></h4>
+                    <div class="meta">
+                      <div>
+                        Bachelor in <strong>Information Technology</strong>
+                      </div>
+                      <div><time datetime="2011-06-01">Jun 2011</time> – <time datetime="2014-01-01">Jan 2014</time> <time-duration dates="2011-06-01|2014-01-01"></time-duration></div>
+                    </div>
                   </div>
-                  <div><time datetime="2011-06-01">Jun 2011</time> – <time datetime="2014-01-01">Jan 2014</time> <time-duration dates="2011-06-01|2014-01-01"></time-duration></div>
                 </div>
               </header>
               

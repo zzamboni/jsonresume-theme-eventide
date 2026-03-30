@@ -106,11 +106,9 @@ By default, [Font Awesome icons](https://fontawesome.com/) are used for the prof
 }
 ```
 
-### Certificate badges
+### Certificate, work and education badges and logos
 
-If a [certificate](https://docs.jsonresume.org/schema#certificates) entry contains an `image` field, it is used as the URL of an image to display next to the entry as a badge for the certificate.
-
-If a certificate entry contains only `name` and optionally `url` but no `issuer` or `date`, it is considered as a "note" entry and rendered at the top of the list in a different format (for example to link to a full list).
+If a [certificate](https://docs.jsonresume.org/schema#certificates), [work](https://docs.jsonresume.org/schema#work) or [education](https://docs.jsonresume.org/schema#education) entry contains an `image` field, it is used as the URL of an image to display next to the entry.
 
 ### Grouping projects by type
 

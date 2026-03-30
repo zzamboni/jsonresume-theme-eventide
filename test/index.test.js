@@ -71,6 +71,54 @@ it('does not render a table of contents when explicitly disabled', () => {
   expect(render(resumeWithoutToc)).not.toContain('class="table-of-contents-toggle"')
 })
 
+it('renders logos for work and education entries when image is provided', () => {
+  const resumeWithEntryLogos = {
+    ...resume,
+    work: [
+      {
+        ...resume.work[0],
+        image: 'https://example.com/work-logo.png',
+      },
+    ],
+    education: [
+      {
+        ...resume.education[0],
+        image: 'https://example.com/education-logo.png',
+      },
+    ],
+  }
+
+  const output = render(resumeWithEntryLogos)
+
+  expect(output).toContain('src="https://example.com/work-logo.png"')
+  expect(output).toContain('src="https://example.com/education-logo.png"')
+  expect(output).toContain('class="entry-logo"')
+})
+
+it('groups work entries when only some entries provide an image', () => {
+  const resumeWithMixedWorkImages = {
+    ...resume,
+    work: [
+      {
+        ...resume.work[0],
+        image: 'https://example.com/work-logo.png',
+      },
+      {
+        ...resume.work[0],
+        position: 'CTO',
+        summary: 'Follow-up role',
+      },
+    ],
+  }
+
+  const output = render(resumeWithMixedWorkImages)
+
+  expect(output.match(/<section id="work">[\s\S]*?<article>/g)).toHaveLength(1)
+  expect(output).toContain('src="https://example.com/work-logo.png"')
+  expect(output).toContain('CEO/President')
+  expect(output).toContain('CTO')
+})
+
 it('renders valid HTML', async () => {
   const htmlvalidate = new HtmlValidate({
     extends: ['html-validate:recommended', 'html-validate:prettier'],

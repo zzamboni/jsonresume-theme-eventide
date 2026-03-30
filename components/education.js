@@ -15,17 +15,36 @@ export default function Education(education = [], label = 'Education') {
       <h3>${label}</h3>
       <div class="stack">
         ${education.map(
-          ({ area, courses = [], institution, startDate, endDate, studyType, url }) => html`
+          ({ area, courses = [], image, institution, startDate, endDate, studyType, url }) => html`
             <article>
               <header>
-                <h4>${Link(url, institution, { markdown: true })}</h4>
-                <div class="meta">
-                  <div>
-                    ${[studyType && markdownInline(studyType), area && html`<strong>${markdownInline(area)}</strong>`]
-                      .filter(Boolean)
-                      .join(' in ')}
+                <div class="entry-header">
+                  ${image &&
+                  html`
+                    <div class="entry-logo-frame">
+                      ${url
+                        ? html`
+                            <a href="${url}" aria-label="${institution}" class="entry-logo-link">
+                              <img class="entry-logo" src="${image}" alt="" loading="lazy" />
+                            </a>
+                          `
+                        : html`<img class="entry-logo" src="${image}" alt="" loading="lazy" />`}
+                    </div>
+                  `}
+                  <div class="entry-header-body">
+                    <h4>${Link(url, institution, { markdown: true })}</h4>
+                    <div class="meta">
+                      <div>
+                        ${[
+                          studyType && markdownInline(studyType),
+                          area && html`<strong>${markdownInline(area)}</strong>`,
+                        ]
+                          .filter(Boolean)
+                          .join(' in ')}
+                      </div>
+                      ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
+                    </div>
                   </div>
-                  ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
                 </div>
               </header>
               ${courses.length > 0 &&

@@ -227,6 +227,39 @@ svg {
   min-height: var(--scale4);
 }
 
+.entry-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.entry-header-body {
+  min-width: 0;
+}
+
+.entry-logo-frame {
+  flex: 0 0 auto;
+}
+
+.entry-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  line-height: 0;
+}
+
+.entry-logo {
+  display: block;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
 @media print {
   .floating-links {
     display: none;
