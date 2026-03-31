@@ -7,20 +7,20 @@ Example: https://zzamboni.org/vita/
 
 A flat [JSON Resume](https://jsonresume.org/) theme, compatible with the latest [resume schema](https://github.com/jsonresume/resume-schema). Fork of [jsonresume-theme-even](https://github.com/rbardini/jsonresume-theme-even) (forked from jsonresume-theme-even@0.26.1).
 
-- 💄 Markdown support
+- 💄 Markdown support in all text fields
 - 📐 CSS grid layout
 - 🌗 Light and dark modes
 - 🎨 Customizable colors
-- 🧩 Standalone CLI
-- 📦 ESM and CommonJS builds
-- 🤖 TypeScript typings
 - 🖼️ Support for FontAwesome and Feather icons
-- 🏅 Support for certificate badges
+- 🏅 Support for certificate badges, company and school logos
 - 📝 Support for "note" entries in publications, certificates and projects
 - 🗂️ Auto-grouping of project entries by type
 - 🏷️ Customizable section labels and ordering
 - 📚 Table of contents
 - 🔗 Configurable floating links in the bottom-right of the theme
+- 🧩 Standalone CLI
+- 📦 ESM and CommonJS builds
+- 🤖 TypeScript typings
 
 [Repository →](https://github.com/zzamboni/jsonresume-theme-eventide)
 
