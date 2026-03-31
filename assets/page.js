@@ -52,10 +52,18 @@ customElements.define('time-duration', TimeDuration)
       setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true')
     })
 
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setMenuOpen(false)
+    })
+
     mobileMediaQuery.addEventListener('change', event => {
       if (!event.matches) setMenuOpen(false)
     })
   }
+
+  toc.addEventListener('click', event => {
+    if (mobileMediaQuery.matches && event.target === toc) setMenuOpen(false)
+  })
 
   // Track all sections
   const sections = Array.from(links)

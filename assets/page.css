@@ -416,6 +416,10 @@ time + time-duration::before {
   cursor: pointer;
   overflow: hidden;
   z-index: 120;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .table-of-contents-toggle span {
@@ -449,6 +453,10 @@ body.toc-menu-open .table-of-contents-toggle span:nth-child(2) {
 
 body.toc-menu-open .table-of-contents-toggle span:nth-child(3) {
   transform: rotate(-45deg);
+}
+
+body.toc-menu-open {
+  overflow: hidden;
 }
 
 .table-of-contents {
@@ -518,26 +526,70 @@ body.toc-menu-open .table-of-contents-toggle span:nth-child(3) {
 @media (max-width: 64em) {
   .table-of-contents-toggle {
     display: block;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 1px solid color-mix(in srgb, var(--color-secondary) 24%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-background) 94%, transparent);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(18px);
   }
 
   .table-of-contents {
-    top: 4.75rem;
-    right: 1rem;
-    left: 1rem;
-    width: auto;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 5.75rem 1.75rem 2.5rem;
+    background:
+      radial-gradient(circle at top right, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 28%),
+      color-mix(in srgb, var(--color-background) 97%, transparent);
+    backdrop-filter: blur(18px);
+    border-radius: 0;
+    box-shadow: none;
     max-width: none;
-    max-height: calc(100vh - 6rem);
-    opacity: 0;
+    max-height: none;
+    overflow-y: auto;
+    visibility: hidden;
     pointer-events: none;
-    transform: translateY(-0.5rem);
+    opacity: 0;
+    transform: none;
     transition:
       opacity 0.2s ease,
-      transform 0.2s ease;
+      visibility 0.2s ease;
+  }
+
+  .table-of-contents ul {
+    width: min(100%, 28rem);
+    padding: 0 0.5rem 2rem;
+  }
+
+  .table-of-contents li + li {
+    margin-top: 0.85rem;
+  }
+
+  .table-of-contents a {
+    padding: 0.55rem 0.75rem;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    border-radius: 0.85rem;
+  }
+
+  .table-of-contents li:first-child a {
+    margin-bottom: 1rem;
+    font-size: 1.9rem;
+    font-weight: 700;
   }
 
   body.toc-menu-open .table-of-contents {
+    visibility: visible;
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
+  }
+
+  body.toc-menu-open .table-of-contents-toggle {
+    background: color-mix(in srgb, var(--color-background) 92%, transparent);
+    box-shadow: none;
   }
 }
