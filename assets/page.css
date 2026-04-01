@@ -214,10 +214,12 @@ svg {
   border-radius: 0.5rem;
   background: #fff;
   line-height: 0;
+  overflow: hidden;
 }
 
 .certificate-badge {
   display: block;
+  border-radius: 0.25rem;
 }
 
 .note-entry,
@@ -251,6 +253,7 @@ svg {
   border-radius: 0.5rem;
   background: #fff;
   line-height: 0;
+  overflow: hidden;
 }
 
 .entry-logo {
@@ -258,6 +261,7 @@ svg {
   width: 56px;
   height: 56px;
   object-fit: contain;
+  border-radius: 0.25rem;
 }
 
 @media print {
