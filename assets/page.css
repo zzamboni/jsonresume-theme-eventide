@@ -208,8 +208,11 @@ svg {
 
 .certificate-badge-link {
   display: inline-flex;
+  flex: 0 0 56px;
   align-items: center;
   justify-content: center;
+  width: 56px;
+  height: 56px;
   padding: 0.25rem;
   border-radius: 0.5rem;
   background: #fff;
@@ -219,6 +222,9 @@ svg {
 
 .certificate-badge {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   border-radius: 0.25rem;
 }
 
