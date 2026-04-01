@@ -642,4 +642,22 @@ body.toc-menu-open {
     background: color-mix(in srgb, var(--color-background) 92%, transparent);
     box-shadow: none;
   }
+
+  .floating-links {
+    display: none;
+  }
+
+  body.toc-menu-open .floating-links {
+    position: fixed;
+    right: 1.4em;
+    bottom: 2rem;
+    display: flex;
+    left: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    transform: none;
+    width: auto;
+    z-index: 115;
+  }
 }
