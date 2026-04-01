@@ -448,6 +448,13 @@ customElements.define('time-duration', TimeDuration)
           
       </div>
     </section>
+   
+    <footer class="resume-footer">
+      <div class="resume-footer-content">
+        <p class="resume-footer-left">© Richard Hendriks 2026</p>
+        <p class="resume-footer-right">Powered by <a href="https://github.com/zzamboni/jsonresume-theme-eventide">Eventide</a></p>
+      </div>
+    </footer>
   
       </body>
     </html>"
@@ -903,6 +910,13 @@ customElements.define('time-duration', TimeDuration)
           
       </div>
     </section>
+   
+    <footer class="resume-footer">
+      <div class="resume-footer-content">
+        <p class="resume-footer-left">© Richard Hendriks 2026</p>
+        <p class="resume-footer-right">Powered by <a href="https://github.com/zzamboni/jsonresume-theme-eventide">Eventide</a></p>
+      </div>
+    </footer>
   
       </body>
     </html>"

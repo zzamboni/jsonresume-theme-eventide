@@ -119,6 +119,26 @@ it('groups work entries when only some entries provide an image', () => {
   expect(output).toContain('CTO')
 })
 
+it('renders configurable footer content', () => {
+  const resumeWithCustomFooter = {
+    ...resume,
+    meta: {
+      ...meta,
+      themeOptions: {
+        ...meta.themeOptions,
+        footer_left: 'Custom left footer',
+        footer_right: 'Built with [Resume Toolkit](https://example.com)',
+      },
+    },
+  }
+
+  const output = render(resumeWithCustomFooter)
+
+  expect(output).toContain('Custom left footer')
+  expect(output).toContain('Built with <a href="https://example.com">Resume Toolkit</a>')
+  expect(output).toContain('class="resume-footer"')
+})
+
 it('renders valid HTML', async () => {
   const htmlvalidate = new HtmlValidate({
     extends: ['html-validate:recommended', 'html-validate:prettier'],

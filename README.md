@@ -110,6 +110,15 @@ By default, [Font Awesome icons](https://fontawesome.com/) are used for the prof
 
 If a [certificate](https://docs.jsonresume.org/schema#certificates), [work](https://docs.jsonresume.org/schema#work) or [education](https://docs.jsonresume.org/schema#education) entry contains an `image` field, it is used as the URL of an image to display next to the entry.
 
+### Footer
+
+The theme renders a footer with left and right text blocks, styled similarly to the Blowfish footer.
+
+- `.meta.themeOptions.footer_left` defaults to `© <name from JSONResume> <current year>`
+- `.meta.themeOptions.footer_right` defaults to `Powered by [Eventide](https://github.com/zzamboni/jsonresume-theme-eventide)`
+
+Both fields accept Markdown, so you can include links in either side of the footer.
+
 ### Grouping projects by type
 
 If the `.meta.themeOptions.projectsByType` is `true`, project entries are rendered as separate sections according to their `type` field, instead of as a single section. Per-type sections can also be reordered and configured with custom labels.

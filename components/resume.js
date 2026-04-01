@@ -1,12 +1,13 @@
 import { html } from '@rbardini/html'
 import colors from '../utils/colors.js'
 import FloatingLinks from './floating-links.js'
+import Footer from './footer.js'
 import Header from './header.js'
 import Meta from './meta.js'
 import Sections from './sections.js'
 import TableOfContents from './table-of-contents.js'
 
-/** @typedef {{icons?: string, projectsByType?: boolean, showTableOfContents?: boolean}} ThemeOptions */
+/** @typedef {{icons?: string, projectsByType?: boolean, showTableOfContents?: boolean, footer_left?: string, footer_right?: string}} ThemeOptions */
 
 /**
  * @param {import('../schema.d.ts').ResumeSchema} resume
@@ -40,7 +41,7 @@ export default function Resume(resume, { css, js } = {}) {
       <body id="top">
         ${showTableOfContents ? TableOfContents(resume, { groupByType: projectsByType }) : ''}
         ${FloatingLinks(resume.meta)} ${Header(resume.basics, { iconSet })}
-        ${Sections(resume, { groupByType: projectsByType })}
+        ${Sections(resume, { groupByType: projectsByType })} ${Footer(resume)}
       </body>
     </html>`
 }
