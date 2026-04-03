@@ -8,24 +8,64 @@ html {
 }
 
 body {
-  display: grid;
-  grid-template: 50% 50% / 100%;
+  --splitter-width: 10px;
   margin: 0;
 }
 
-button {
-  cursor: pointer;
+.editor-pane {
+  min-height: 0;
 }
 
-iframe {
+.splitter {
+  display: none;
+}
+
+.preview-pane {
   border: 0;
-  order: 1;
   width: 100%;
   height: 100%;
 }
 
+.cm-editor {
+  height: 100%;
+}
+
+.cm-scroller {
+  overflow: auto;
+}
+
 @media (min-width: 720px) {
   body {
-    grid-template: 100% / 50% 50%;
+    display: flex;
   }
+
+  .editor-pane {
+    width: 45vw;
+    min-width: 18rem;
+    flex: 0 0 auto;
+  }
+
+  .splitter {
+    display: block;
+    flex: 0 0 var(--splitter-width);
+    cursor: col-resize;
+    background: linear-gradient(
+      to right,
+      transparent calc(50% - 1px),
+      color-mix(in srgb, CanvasText 24%, transparent) calc(50% - 1px),
+      color-mix(in srgb, CanvasText 24%, transparent) calc(50% + 1px),
+      transparent calc(50% + 1px)
+    );
+  }
+
+  .preview-pane {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+body.is-resizing,
+body.is-resizing .splitter {
+  cursor: col-resize;
+  user-select: none;
 }
