@@ -80,6 +80,14 @@ const resume = {
   meta: {
     ...sampleResume.meta,
     themeOptions: {
+      colors: {
+        background: ['#ffffff', '#191e23'],
+        dimmed: ['#f3f4f5', '#23282d'],
+        primary: ['#191e23', '#fbfbfc'],
+        secondary: ['#6c7781', '#ccd0d4'],
+        accent: ['#0073aa', '#00a0d2'],
+      },
+      icons: 'fontawesome',
       projectsByType: true,
       showTableOfContents: true,
       sections: [
@@ -118,6 +126,8 @@ const resume = {
           icon: 'github',
         },
       ],
+      footer_left: '© Richard Hendriks 2026',
+      footer_right: 'Powered by [Eventide](https://github.com/zzamboni/jsonresume-theme-eventide)',
     },
   },
 }
