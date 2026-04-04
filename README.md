@@ -82,6 +82,18 @@ chmod a+rx build-resume.sh
 ./build-resume resume.json --serve # Access at https://localhost:8080/
 ```
 
+When used through `resume-toolkit`, some `meta.themeOptions` values are preprocessed before Eventide renders the HTML:
+
+- `meta.themeOptions.links` gets sensible defaults when omitted
+- `meta.themeOptions.footer_right` gets a `resume-toolkit` default when omitted
+- `<resume>` and `<publications>` placeholders in floating-link URLs are expanded before rendering
+
+`resume-toolkit` also reuses some `meta.themeOptions` values in its PDF renderer, notably:
+
+- `sections`
+- `sectionLabels`
+- `projectsByType`
+
 ### With resume-cli
 
 [resume-cli](https://github.com/jsonresume/resume-cli) does not bundle this fork, so install it explicitly and select it by name:
