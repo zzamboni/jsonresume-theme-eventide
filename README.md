@@ -2,10 +2,50 @@
 
 [![npm package version](https://img.shields.io/npm/v/jsonresume-theme-eventide.svg)](https://www.npmjs.com/package/jsonresume-theme-eventide)
 [![Build status](https://img.shields.io/github/actions/workflow/status/zzamboni/jsonresume-theme-eventide/main.yml)](https://github.com/zzamboni/jsonresume-theme-eventide/actions)
+[![resume-toolkit](https://img.shields.io/badge/see%20also-resume--toolkit-blue)](https://github.com/zzamboni/resume-toolkit)
 
-Example: https://zzamboni.org/vita/
+---
 
-A flat [JSON Resume](https://jsonresume.org/) theme, compatible with the latest [resume schema](https://github.com/jsonresume/resume-schema). Fork of [jsonresume-theme-even](https://github.com/rbardini/jsonresume-theme-even) (forked from jsonresume-theme-even@0.26.1).
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+
+**Table of Contents**
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [With resume-toolkit](#with-resume-toolkit)
+  - [With resume-cli](#with-resume-cli)
+  - [With Resumed](#with-resumed)
+  - [Standalone usage](#standalone-usage)
+- [Options](#options)
+  - [Colors](#colors)
+  - [Icons](#icons)
+  - [Certificate, work and education badges and logos](#certificate-work-and-education-badges-and-logos)
+  - [Footer](#footer)
+  - [Grouping projects by type](#grouping-projects-by-type)
+  - [Sections](#sections)
+    - [Ordering](#ordering)
+    - [Custom Labels](#custom-labels)
+  - [Table of contents](#table-of-contents)
+  - [Floating links](#floating-links)
+  - [Note fields](#note-fields)
+- [Release Process](#release-process)
+
+<!-- markdown-toc end -->
+
+---
+
+## Overview
+
+A flat [JSON Resume](https://jsonresume.org/) theme, compatible with the latest [resume schema](https://github.com/jsonresume/resume-schema). Fork of [jsonresume-theme-even](https://github.com/rbardini/jsonresume-theme-even). See [resume-toolkit](https://github.com/zzamboni/resume-toolkit) if you want to generate both HTML and PDF from a JSON Resume file.
+
+> [!TIP]
+> **Examples:**
+>
+> - Author's CV: https://zzamboni.org/vita/
+> - Interactive editor: https://zzamboni.github.io/jsonresume-theme-eventide/
+
+**Features:**
 
 - 💄 Markdown support in all text fields
 - 📐 CSS grid layout
@@ -121,7 +161,7 @@ Both fields accept Markdown, so you can include links in either side of the foot
 
 ### Grouping projects by type
 
-If the `.meta.themeOptions.projectsByType` is `true`, project entries are rendered as separate sections according to their `type` field, instead of as a single section. Per-type sections can also be reordered and configured with custom labels.
+If the `.meta.themeOptions.projectsByType` is `true`, project entries are rendered as separate sections according to their `type` field, instead of as a single section. Per-type sections can also be reordered and configured with custom labels by specifying them as `projects:<type>`.
 
 ### Sections
 
@@ -172,7 +212,7 @@ You can override the default section labels. Particularly useful if you want to 
 }
 ```
 
-If `.meta.themeOptions.projectsByType` is `true`, you can also break out project types into individually ordered sections by using `projects:<type>` entries. For example:
+If `.meta.themeOptions.projectsByType` is `true`, you can also break out project types into individually ordered/labeled sections by using `projects:<type>` entries. For example:
 
 ```json
 {
@@ -207,7 +247,7 @@ The table of contents automatically includes links to all resume sections that h
 
 ### Floating links
 
-You can add floating action links in the bottom-right corner by setting `.meta.themeOptions.links` to an array of `{ name, url, icon }` objects. The `icon` value can be a plain Font Awesome name like `github`, or a Font Awesome class-style string copied from their site such as `fa-regular fa-file-pdf` or `fa-brands fa-github`.
+You can add floating action links in the bottom-right corner by setting `.meta.themeOptions.links` to an array of `{ name, url, icon }` objects. The `icon` value can be a plain Font Awesome name like `github`, or a full Font Awesome class-style string such as `fa-regular fa-file-pdf` or `fa-brands fa-github`.
 
 ```json
 {
@@ -246,7 +286,7 @@ Examples:
 }
 ```
 
-## Release Process
+## Under the hood
 
 To publish a new release, bump the package version and push the commit together with its tag:
 
@@ -256,15 +296,6 @@ git push --follow-tags
 ```
 
 Pushing a `v*` tag triggers the GitHub Actions publish workflow, which runs the checks and publishes the package to npm automatically.
-
-If you need to re-test the publish workflow without bumping the version, you can delete and recreate the tag:
-
-```console
-git tag -d v0.27.3
-git push origin :refs/tags/v0.27.3
-git tag v0.27.3
-git push origin v0.27.3
-```
 
 You can automate the normal release flow with `mise`:
 
