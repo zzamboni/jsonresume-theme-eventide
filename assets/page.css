@@ -643,11 +643,11 @@ body.toc-menu-open {
     box-shadow: none;
   }
 
-  .floating-links {
+  body:has(.table-of-contents) .floating-links {
     display: none;
   }
 
-  body.toc-menu-open .floating-links {
+  body.toc-menu-open:has(.table-of-contents) .floating-links {
     position: fixed;
     right: 1.4em;
     bottom: 2rem;
