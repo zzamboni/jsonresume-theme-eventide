@@ -10,26 +10,27 @@
 
 **Table of Contents**
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [With resume-toolkit](#with-resume-toolkit)
-  - [With resume-cli](#with-resume-cli)
-  - [With Resumed](#with-resumed)
-  - [Standalone usage](#standalone-usage)
-- [Options](#options)
-  - [Colors](#colors)
-  - [Icons](#icons)
-  - [Certificate, work and education badges and logos](#certificate-work-and-education-badges-and-logos)
-  - [Footer](#footer)
-  - [Grouping projects by type](#grouping-projects-by-type)
-  - [Sections](#sections)
-    - [Ordering](#ordering)
-    - [Custom Labels](#custom-labels)
-  - [Table of contents](#table-of-contents)
-  - [Floating links](#floating-links)
-  - [Note fields](#note-fields)
-- [Release Process](#release-process)
+- [jsonresume-theme-eventide](#jsonresume-theme-eventide)
+  - [Overview](#overview)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [With resume-toolkit](#with-resume-toolkit)
+    - [With resume-cli](#with-resume-cli)
+    - [With Resumed](#with-resumed)
+    - [Standalone usage](#standalone-usage)
+  - [Options](#options)
+    - [Colors](#colors)
+    - [Icons](#icons)
+    - [Certificate, work and education badges and logos](#certificate-work-and-education-badges-and-logos)
+    - [Footer](#footer)
+    - [Grouping projects by type](#grouping-projects-by-type)
+    - [Sections](#sections)
+      - [Ordering](#ordering)
+      - [Custom Labels](#custom-labels)
+    - [Table of contents](#table-of-contents)
+    - [Floating links](#floating-links)
+    - [Note fields](#note-fields)
+  - [Under the hood](#under-the-hood)
 
 <!-- markdown-toc end -->
 
@@ -260,6 +261,8 @@ The table of contents automatically includes links to all resume sections that h
 ### Floating links
 
 You can add floating action links in the bottom-right corner by setting `.meta.themeOptions.links` to an array of `{ name, url, icon }` objects. The `icon` value can be a plain Font Awesome name like `github`, or a full Font Awesome class-style string such as `fa-regular fa-file-pdf` or `fa-brands fa-github`.
+
+On narrower screens, floating links are hidden by default and only appear when the full-screen table-of-contents overlay is open.
 
 ```json
 {
