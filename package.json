@@ -62,7 +62,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@rbardini/html": "^1.0.0",
     "feather-icons": "^4.28.0",
-    "micromark": "^2.11.0",
+    "micromark": "^4.0.2",
     "striptags": "^3.2.0"
   },
   "devDependencies": {
