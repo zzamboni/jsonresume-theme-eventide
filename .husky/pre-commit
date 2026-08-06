@@ -1,1 +1,6 @@
-npx --no lint-staged
+command -v lint-staged >/dev/null 2>&1 || {
+  echo "lint-staged is not installed. Run 'npm ci' before committing."
+  exit 1
+}
+
+lint-staged
