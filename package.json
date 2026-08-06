@@ -86,6 +86,6 @@
     "unplugin-dts": "1.0.0-beta.6",
     "vite": "7.1.12",
     "vite-plugin-static-copy": "3.1.4",
-    "vitest": "4.0.7"
+    "vitest": "4.1.10"
   }
 }
