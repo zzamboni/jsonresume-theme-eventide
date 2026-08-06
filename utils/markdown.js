@@ -1,5 +1,11 @@
-import micromark from 'micromark'
+import * as micromarkModule from 'micromark'
 import striptags from 'striptags'
+
+/** @type {(value: string) => string} */
+const micromark =
+  'micromark' in micromarkModule
+    ? /** @type {(value: string) => string} */ (/** @type {unknown} */ (micromarkModule.micromark))
+    : /** @type {(value: string) => string} */ (/** @type {unknown} */ (micromarkModule.default))
 
 /**
  * @param {string} doc
@@ -7,7 +13,6 @@ import striptags from 'striptags'
  * @returns
  */
 export default function markdown(doc, stripTags = false) {
-  // @ts-expect-error missing micromark types
   const html = /** @type {string} */ (micromark(doc))
   return stripTags ? striptags(html) : html
 }
