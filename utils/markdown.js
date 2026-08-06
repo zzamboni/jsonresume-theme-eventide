@@ -1,11 +1,17 @@
 import * as micromarkModule from 'micromark'
 import striptags from 'striptags'
 
+/** @typedef {{ micromark?: (value: string) => string, default?: (value: string) => string }} MicromarkCompat */
+
+const micromarkCompat = /** @type {MicromarkCompat} */ (/** @type {unknown} */ (micromarkModule))
+const resolvedMicromark = micromarkCompat.micromark || micromarkCompat.default
+
+if (!resolvedMicromark) {
+  throw new Error('Unable to resolve micromark export')
+}
+
 /** @type {(value: string) => string} */
-const micromark =
-  'micromark' in micromarkModule
-    ? /** @type {(value: string) => string} */ (/** @type {unknown} */ (micromarkModule.micromark))
-    : /** @type {(value: string) => string} */ (/** @type {unknown} */ (micromarkModule.default))
+const micromark = resolvedMicromark
 
 /**
  * @param {string} doc
