@@ -22,18 +22,20 @@ export default function Certificates(certificates = [], label = 'Certificates') 
     <section id="certificates">
       <h3>${label}</h3>
       <div class="stack">
-        ${notes.length > 0 &&
-        html`
-          ${notes.map(
-            ({ name, url }) => html`
-              <article class="note-entry">
-                <header>
-                  <div class="meta">${Link(url, name, { markdown: true })}</div>
-                </header>
-              </article>
-            `,
-          )}
-        `}
+        ${
+          notes.length > 0 &&
+          html`
+            ${notes.map(
+              ({ name, url }) => html`
+                <article class="note-entry">
+                  <header>
+                    <div class="meta">${Link(url, name, { markdown: true })}</div>
+                  </header>
+                </article>
+              `,
+            )}
+          `
+        }
         ${certs.map(
           ({ date, issuer, name, url, image }) => html`
             <article>

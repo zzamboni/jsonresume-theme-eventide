@@ -16,12 +16,14 @@ export default function Skills(skills = [], label = 'Skills') {
           ({ keywords = [], name }) => html`
             <div>
               ${name && html`<h4>${markdownInline(name)}</h4>`}
-              ${keywords.length > 0 &&
-              html`
-                <ul class="tag-list">
-                  ${keywords.map(keyword => html`<li>${keyword}</li>`)}
-                </ul>
-              `}
+              ${
+                keywords.length > 0 &&
+                html`
+                  <ul class="tag-list">
+                    ${keywords.map(keyword => html`<li>${keyword}</li>`)}
+                  </ul>
+                `
+              }
             </div>
           `,
         )}

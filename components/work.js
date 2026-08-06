@@ -34,40 +34,50 @@ export default function Work(work = [], label = 'Work') {
             <article>
               <header>
                 <div class="entry-header">
-                  ${image &&
-                  html`
-                    <div class="entry-logo-frame">
-                      ${url
-                        ? html`
-                            <a href="${url}" aria-label="${name}" class="entry-logo-link">
-                              <img class="entry-logo" src="${image}" alt="" loading="lazy" />
-                            </a>
-                          `
-                        : html`<img class="entry-logo" src="${image}" alt="" loading="lazy" />`}
-                    </div>
-                  `}
+                  ${
+                    image &&
+                    html`
+                      <div class="entry-logo-frame">
+                        ${
+                          url
+                            ? html`
+                                <a href="${url}" aria-label="${name}" class="entry-logo-link">
+                                  <img class="entry-logo" src="${image}" alt="" loading="lazy" />
+                                </a>
+                              `
+                            : html`<img class="entry-logo" src="${image}" alt="" loading="lazy" />`
+                        }
+                      </div>
+                    `
+                  }
                   <div class="entry-header-body">
                     <h4>
-                      ${singleItem
-                        ? singleItem.position && markdownInline(singleItem.position)
-                        : Link(url, name, { markdown: true })}
+                      ${
+                        singleItem
+                          ? singleItem.position && markdownInline(singleItem.position)
+                          : Link(url, name, { markdown: true })
+                      }
                     </h4>
                     <div class="meta">
-                      ${singleItem
-                        ? html`
-                            <div>
-                              ${[html`<strong>${Link(url, name, { markdown: true })}</strong>`, description]
-                                .filter(Boolean)
-                                .join(' · ')}
-                            </div>
-                            ${singleItem.startDate &&
-                            html`<div>${DateTimeDuration(singleItem.startDate, singleItem.endDate)}</div>`}
-                            ${singleItem.location && html`<div>${singleItem.location}</div>`}
-                          `
-                        : html`
-                            ${description && html`<div>${description}</div>`}
-                            ${items.some(item => item.startDate) && html`<div>${Duration(items)}</div>`}
-                          `}
+                      ${
+                        singleItem
+                          ? html`
+                              <div>
+                                ${[html`<strong>${Link(url, name, { markdown: true })}</strong>`, description]
+                                  .filter(Boolean)
+                                  .join(' · ')}
+                              </div>
+                              ${
+                                singleItem.startDate &&
+                                html`<div>${DateTimeDuration(singleItem.startDate, singleItem.endDate)}</div>`
+                              }
+                              ${singleItem.location && html`<div>${singleItem.location}</div>`}
+                            `
+                          : html`
+                              ${description && html`<div>${description}</div>`}
+                              ${items.some(item => item.startDate) && html`<div>${Duration(items)}</div>`}
+                            `
+                      }
                     </div>
                   </div>
                 </div>
@@ -76,23 +86,27 @@ export default function Work(work = [], label = 'Work') {
                 ${items.map(
                   ({ highlights = [], location, position, startDate, endDate, summary }) => html`
                     <div>
-                      ${!singleItem &&
-                      html`
-                        <div>
-                          <h5>${position && markdownInline(position)}</h5>
-                          <div class="meta">
-                            ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
-                            ${location && html`<div>${location}</div>`}
+                      ${
+                        !singleItem &&
+                        html`
+                          <div>
+                            <h5>${position && markdownInline(position)}</h5>
+                            <div class="meta">
+                              ${startDate && html`<div>${DateTimeDuration(startDate, endDate)}</div>`}
+                              ${location && html`<div>${location}</div>`}
+                            </div>
                           </div>
-                        </div>
-                      `}
+                        `
+                      }
                       ${summary && markdown(summary)}
-                      ${highlights.length > 0 &&
-                      html`
-                        <ul>
-                          ${highlights.map(highlight => html`<li>${markdown(highlight)}</li>`)}
-                        </ul>
-                      `}
+                      ${
+                        highlights.length > 0 &&
+                        html`
+                          <ul>
+                            ${highlights.map(highlight => html`<li>${markdown(highlight)}</li>`)}
+                          </ul>
+                        `
+                      }
                     </div>
                   `,
                 )}
