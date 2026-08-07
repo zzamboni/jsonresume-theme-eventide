@@ -78,7 +78,7 @@
     "html-validate": "10.3.0",
     "husky": "9.1.7",
     "json-schema-to-typescript": "15.0.4",
-    "lint-staged": "16.2.6",
+    "lint-staged": "17.3.0",
     "prettier": "3.9.6",
     "prettier-plugin-organize-imports": "4.3.0",
     "prettier-plugin-packagejson": "3.0.2",
