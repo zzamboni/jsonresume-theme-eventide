@@ -30,7 +30,7 @@
     - [Table of contents](#table-of-contents)
     - [Floating links](#floating-links)
     - [Note fields](#note-fields)
-  - [Under the hood](#under-the-hood)
+  - [Development](#development)
 
 <!-- markdown-toc end -->
 
@@ -301,19 +301,6 @@ Examples:
 }
 ```
 
-## Under the hood
+## Development
 
-To publish a new release, bump the package version and push the commit together with its tag:
-
-```console
-npm version patch
-git push --follow-tags
-```
-
-Pushing a `v*` tag triggers the GitHub Actions publish workflow, which runs the checks and publishes the package to npm automatically.
-
-You can automate the normal release flow with `mise`:
-
-```console
-mise run release patch
-```
+Development, build, test, editor, CI, and release documentation lives in [DEVELOPMENT.md](/var/home/diego/Dropbox/Personal/devel/resume-toolkit/themes/jsonresume-theme-eventide/DEVELOPMENT.md).
