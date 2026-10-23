@@ -4,7 +4,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import feather from 'feather-icons'
 
-/** @typedef {import('@fortawesome/fontawesome-common-types').IconPack} IconPack */
+/** @typedef {import('@fortawesome/fontawesome-svg-core').IconPack} IconPack */
 
 library.add(/** @type {IconPack} */ (fas), /** @type {IconPack} */ (far), /** @type {IconPack} */ (fab))
 
