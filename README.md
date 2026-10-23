@@ -3,6 +3,7 @@
 [![npm package version](https://img.shields.io/npm/v/jsonresume-theme-eventide.svg)](https://www.npmjs.com/package/jsonresume-theme-eventide)
 [![Build status](https://img.shields.io/github/actions/workflow/status/zzamboni/jsonresume-theme-eventide/main.yml)](https://github.com/zzamboni/jsonresume-theme-eventide/actions)
 [![resume-toolkit](https://img.shields.io/badge/see%20also-resume--toolkit-blue)](https://github.com/zzamboni/resume-toolkit)
+[![resume-toolkit](https://img.shields.io/badge/see%20also-hugo--jsonresume-blue)](https://github.com/zzamboni/hugo-jsonresume)
 
 ---
 
@@ -43,7 +44,6 @@ A flat [JSON Resume](https://jsonresume.org/) theme, compatible with the latest 
 > [!TIP]
 > **Examples:**
 >
-> - Author's CV: https://zzamboni.org/vita/
 > - Interactive editor: https://zzamboni.github.io/jsonresume-theme-eventide/
 
 **Features:**
